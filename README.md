@@ -7,12 +7,14 @@ Available at / dostępne na: <URL> TODO
 ## How to build / jak zbudować ze źródła
 
 Build requirements / wymagania:
-    * IPython + notebook >= 2.0
-    * pandoc
+
+* IPython + notebook >= 2.0
+* pandoc
 
 More on requirements / więcej informacji o wymaganiach:
-    * http://ipython.org/ipython-doc/stable/install/install.html#dependencies-for-the-ipython-html-notebook 
-    * http://ipython.org/ipython-doc/stable/install/install.html#pandoc
+
+* http://ipython.org/ipython-doc/stable/install/install.html#dependencies-for-the-ipython-html-notebook 
+* http://ipython.org/ipython-doc/stable/install/install.html#pandoc
 
 Static HTML / statyczny HTML -- `out/index.html`:
 
