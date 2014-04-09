@@ -1,5 +1,7 @@
 # PyWaw #35 slides
 
+http://pywaw.org/35/
+
 ## "Czego nauczyłem się pracując z pandas"
 
 Available at / dostępne na: <URL> TODO
