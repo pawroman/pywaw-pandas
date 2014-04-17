@@ -1,4 +1,36 @@
-{%- extends 'slides_reveal.tpl' -%}
+{%- extends 'basic.tpl' -%}
+{% from 'mathjax.tpl' import mathjax %}
+
+{%- block any_cell scoped -%}
+{%- if cell.metadata.slide_type in ['slide'] -%}
+    <section>
+    <section>
+    {{ super() }}
+{%- elif cell.metadata.slide_type in ['subslide'] -%}
+    <section>
+    {{ super() }}
+{%- elif cell.metadata.slide_type in ['-'] -%}
+    {{ super() }}
+{%- elif cell.metadata.slide_type in ['skip'] -%}
+    <div style=display:none>
+    {{ super() }}
+    </div>
+{%- elif cell.metadata.slide_type in ['notes'] -%}
+    <aside class="notes">
+    {{ super() }}
+    </aside>
+{%- elif cell.metadata.slide_type in ['fragment'] -%}
+    <div class="fragment">
+    {{ super() }}
+    </div>
+{%- endif -%}
+{%- if cell.metadata.slide_helper in ['subslide_end'] -%}
+    </section>
+{%- elif cell.metadata.slide_helper in ['slide_end'] -%}
+    </section>
+    </section>
+{%- endif -%}
+{%- endblock any_cell -%}
 
 {% block header %}
 <!DOCTYPE html>
@@ -23,6 +55,10 @@
 <!-- If the query includes 'print-pdf', use the PDF print sheet -->
 <script>
 document.write( '<link rel="stylesheet" href="{{resources.reveal.url_prefix}}/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+
+Reveal.configure({
+width: 1024,
+});
 </script>
 
 <!-- custom fonts -->
@@ -106,3 +142,55 @@ div.output_prompt {
 </head>
 {% endblock header%}
 
+{% block body %}
+<body>
+<div class="reveal">
+<div class="slides">
+{{ super() }}
+</div>
+</div>
+
+<script src="{{resources.reveal.url_prefix}}/lib/js/head.min.js"></script>
+
+<script src="{{resources.reveal.url_prefix}}/js/reveal.js"></script>
+
+<script>
+
+// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+
+width: 1024,
+height: 768,
+margin: 0.01,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: "{{resources.reveal.url_prefix}}/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "{{resources.reveal.url_prefix}}/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: "{{resources.reveal.url_prefix}}/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
+
+<!-- Loading mathjax macro -->
+{{ mathjax() }}
+
+<script>
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  window.scrollTo(0,0);
+  MathJax.Hub.Rerender(event.currentSlide);
+});
+</script>
+
+</body>
+{% endblock body %}
+
+{% block footer %}
+</html>
+{% endblock footer %}
