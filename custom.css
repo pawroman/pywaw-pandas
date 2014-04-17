@@ -7,3 +7,19 @@ body, .reveal, .reveal div, .reveal h1, .reveal h2, .reveal h3, .reveal h4  {
     font-family: 'Source Code Pro', sans-serif !important;
     font-weight: 400 !important;
 }
+
+strong {
+    font-weight: 400 !important;
+}
+
+table.dataframe {
+    font-size: 16px;
+}
+
+table.dataframe th {
+    font-weight: 400 !important;
+}
+
+.output_pyout p {
+    font-size: 15px;
+}

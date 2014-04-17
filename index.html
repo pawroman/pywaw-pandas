@@ -21,6 +21,10 @@
 <!-- If the query includes 'print-pdf', use the PDF print sheet -->
 <script>
 document.write( '<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.5.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+
+Reveal.configure({
+width: 1024,
+});
 </script>
 
 <!-- custom fonts -->
@@ -2295,6 +2299,15 @@ In&nbsp;[5]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="manipulacja-danymi">Manipulacja danymi</h1>
 <hr>
+<ul>
+<li>Indeksowanie</li>
+<li>Sortowanie</li>
+<li>Wypełnianie / usuwanie danych <code>N/A</code></li>
+<li>Mapowanie / operacje macierzowe</li>
+<li>Timeseries: resamplowanie, strefy czasowe</li>
+<li>Grupowanie</li>
+<li>...</li>
+</ul>
 </div>
 </div>
 </div></section>
@@ -2309,7 +2322,7 @@ In&nbsp;[6]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">posts_sorted</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&quot;&lt;no comment&gt;&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">posts_sorted</span>
+<span class="n">posts_sorted</span>
 </pre></div>
 
 </div>
@@ -2320,27 +2333,85 @@ In&nbsp;[6]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-   id  likes           message            name                ts
-1   2    666      &lt;no comment&gt;          Zbychu  2014-01-01T13:37
-5   6    512         miau miau           kotek  2014-04-15T23:15
-0   1     56            helloł          Zbychu  2014-01-01T10:00
-3   4     42  veni, vidi, vici   julius_caesar  2014-01-02T19:42
-4   5      6  The die is cast.   julius_caesar  2014-02-04T12:02
-2   3      2           panda 3  biedny student  2014-01-01T15:35
+<div class="output_area"><div class="prompt output_prompt">
+    Out[6]:</div>
 
-[6 rows x 5 columns]
-
-</pre>
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td> 2</td>
+      <td> 666</td>
+      <td>     &lt;no comment&gt;</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T13:37</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 6</td>
+      <td> 512</td>
+      <td>        miau miau</td>
+      <td>          kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td>  56</td>
+      <td>           helloł</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T10:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td>  42</td>
+      <td> veni, vidi, vici</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5</td>
+      <td>   6</td>
+      <td> The die is cast.</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td>   2</td>
+      <td>          panda 3</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 5 columns</p>
 </div>
 </div>
 
 </div>
+
+</div>
 </div>
 
-</div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2356,8 +2427,9 @@ In&nbsp;[7]:
 
 <span class="c"># bezpośrednia manipulacja</span>
 <span class="n">posts_sorted</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">2</span>
 
-<span class="k">print</span> <span class="n">posts_sorted</span><span class="p">[[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]]</span>
+<span class="n">posts_sorted</span><span class="p">[[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]]</span>
 </pre></div>
 
 </div>
@@ -2369,23 +2441,6 @@ In&nbsp;[7]:
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-   id  likes      message
-1   2    666  REPLACEMENT
-5   6    512  REPLACEMENT
-0   1     56  REPLACEMENT
-3   4     42  REPLACEMENT
-4   5      6  replacement
-2   3      2  replacement
-
-[6 rows x 3 columns]
-
-</pre>
-</div>
-</div>
-
-<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>
 -c:4: SettingWithCopyWarning: A value is trying to be set on a copy of a slice from a DataFrame.
@@ -2395,11 +2450,69 @@ Try using .loc[row_index,col_indexer] = value instead
 </div>
 </div>
 
+<div class="output_area"><div class="prompt output_prompt">
+    Out[7]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td> 2</td>
+      <td>-1332</td>
+      <td> REPLACEMENT</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 6</td>
+      <td>-1024</td>
+      <td> REPLACEMENT</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td> -112</td>
+      <td> REPLACEMENT</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td>  -84</td>
+      <td> REPLACEMENT</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5</td>
+      <td>  -12</td>
+      <td> replacement</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td>   -4</td>
+      <td> replacement</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 3 columns</p>
 </div>
 </div>
 
 </div>
-    </div></section>
+
+</div>
+</div>
+
+</div></section>
     </section><section>
     <section>
     
@@ -2412,7 +2525,7 @@ In&nbsp;[8]:
     <div class="input_area">
 <div class="highlight"><pre><span class="c"># wybieranie po domyślnym indexie (range(len(posts)))</span>
 <span class="k">print</span> <span class="n">posts</span><span class="o">.</span><span class="n">index</span>
-<span class="k">print</span> <span class="n">posts</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">posts</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2427,15 +2540,58 @@ In&nbsp;[8]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
-   id  likes           message           name                ts
-3   4     42  veni, vidi, vici  julius_caesar  2014-01-02T19:42
-4   5      6  The die is cast.  julius_caesar  2014-02-04T12:02
-5   6    512         miau miau          kotek  2014-04-15T23:15
-
-[3 rows x 5 columns]
 
 </pre>
 </div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[8]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td>  42</td>
+      <td> veni, vidi, vici</td>
+      <td> julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5</td>
+      <td>   6</td>
+      <td> The die is cast.</td>
+      <td> julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 6</td>
+      <td> 512</td>
+      <td>        miau miau</td>
+      <td>         kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 5 columns</p>
+</div>
+</div>
+
 </div>
 
 </div>
@@ -2451,7 +2607,7 @@ In&nbsp;[9]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">posts_id</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">posts_id</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2462,20 +2618,63 @@ In&nbsp;[9]:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-    likes           message            name                ts
-id                                                           
-3       2           panda 3  biedny student  2014-01-01T15:35
-4      42  veni, vidi, vici   julius_caesar  2014-01-02T19:42
-5       6  The die is cast.   julius_caesar  2014-02-04T12:02
-6     512         miau miau           kotek  2014-04-15T23:15
+<div class="output_area"><div class="prompt output_prompt">
+    Out[9]:</div>
 
-[4 rows x 4 columns]
-
-</pre>
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>   2</td>
+      <td>          panda 3</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>  42</td>
+      <td> veni, vidi, vici</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>   6</td>
+      <td> The die is cast.</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td> 512</td>
+      <td>        miau miau</td>
+      <td>          kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+  </tbody>
+</table>
+<p>4 rows × 4 columns</p>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -2761,7 +2960,21 @@ kotek has 512 likes!
 </div>
 </div>
 
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="wykresy">Wykresy</h1>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2934,7 +3147,450 @@ PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
 </div>
 </div>
 
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="crawlowanie">Crawlowanie</h1>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[17]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">post_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s">&quot;created_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T00:20Z&quot;</span><span class="p">,</span>
+        <span class="s">&quot;history&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T01:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T02:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T03:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T04:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T05:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">160</span><span class="p">},</span>
+            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T06:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">166</span><span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="c"># ... more posts ...</span>
+<span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="przyrost-like-w-od-do-">Przyrost like&#39;ów &quot;od do&quot;</h2>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[18]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">history</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">post_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;history&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;crawl_time&quot;</span><span class="p">)</span>
+<span class="n">history</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span>
+<span class="n">history</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[18]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-04-01 01:00:00+00:00</th>
+      <td> 100</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 02:00:00+00:00</th>
+      <td> 120</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 03:00:00+00:00</th>
+      <td> 140</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 04:00:00+00:00</th>
+      <td> 150</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 05:00:00+00:00</th>
+      <td> 160</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 06:00:00+00:00</th>
+      <td> 166</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[19]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">history</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[19]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-04-01 01:00:00+00:00</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 02:00:00+00:00</th>
+      <td> 20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 03:00:00+00:00</th>
+      <td> 20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 04:00:00+00:00</th>
+      <td> 10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 05:00:00+00:00</th>
+      <td> 10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 06:00:00+00:00</th>
+      <td>  6</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">like_growth</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+<span class="n">like_growth</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[20]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-04-01 01:00:00+00:00</th>
+      <td> 100</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 02:00:00+00:00</th>
+      <td>  20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 03:00:00+00:00</th>
+      <td>  20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 04:00:00+00:00</th>
+      <td>  10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 05:00:00+00:00</th>
+      <td>  10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 06:00:00+00:00</th>
+      <td>   6</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">dt_from</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s">&quot;2014-03-31T23:00Z&quot;</span><span class="p">)</span>
+<span class="n">dt_to</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s">&quot;2014-04-01T08:00Z&quot;</span><span class="p">)</span>
+    
+<span class="n">index</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">dt_from</span><span class="p">,</span> <span class="n">dt_to</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="s">&quot;left&quot;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s">&quot;H&quot;</span><span class="p">)</span>
+
+<span class="n">reindexed</span> <span class="o">=</span> <span class="n">like_growth</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">reindexed</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[21]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-03-31 23:00:00</th>
+      <td>   0</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 00:00:00</th>
+      <td>   0</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 01:00:00</th>
+      <td> 100</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 02:00:00</th>
+      <td>  20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 03:00:00</th>
+      <td>  20</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 04:00:00</th>
+      <td>  10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 05:00:00</th>
+      <td>  10</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 06:00:00</th>
+      <td>   6</td>
+    </tr>
+    <tr>
+      <th>2014-04-01 07:00:00</th>
+      <td>   0</td>
+    </tr>
+  </tbody>
+</table>
+<p>9 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">reindexed</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[22]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+likes    float64
+dtype: object
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="c"># Serializacja JSON</span>
+<span class="n">reindexed</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">reindexed</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">isoformat</span><span class="p">)</span>
+<span class="n">reindexed</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;timestamp&quot;</span>
+
+<span class="n">reindexed</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="s">&quot;records&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[23]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>
+[{&apos;likes&apos;: 0, &apos;timestamp&apos;: &apos;2014-03-31T23:00:00&apos;},
+ {&apos;likes&apos;: 0, &apos;timestamp&apos;: &apos;2014-04-01T00:00:00&apos;},
+ {&apos;likes&apos;: 100, &apos;timestamp&apos;: &apos;2014-04-01T01:00:00&apos;},
+ {&apos;likes&apos;: 20, &apos;timestamp&apos;: &apos;2014-04-01T02:00:00&apos;},
+ {&apos;likes&apos;: 20, &apos;timestamp&apos;: &apos;2014-04-01T03:00:00&apos;},
+ {&apos;likes&apos;: 10, &apos;timestamp&apos;: &apos;2014-04-01T04:00:00&apos;},
+ {&apos;likes&apos;: 10, &apos;timestamp&apos;: &apos;2014-04-01T05:00:00&apos;},
+ {&apos;likes&apos;: 6, &apos;timestamp&apos;: &apos;2014-04-01T06:00:00&apos;},
+ {&apos;likes&apos;: 0, &apos;timestamp&apos;: &apos;2014-04-01T07:00:00&apos;}]
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2973,11 +3629,12 @@ PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
 </div>
 </div>
 </div>
-    </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[24]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2991,7 +3648,6 @@ In&nbsp;[17]:
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
             <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="n">parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
             <span class="k">print</span> <span class="s">&quot;I wish I&#39;ve known pandas&quot;</span>
-
     <span class="c"># ... furious data wrangling ...        </span>
 </pre></div>
 
@@ -3000,10 +3656,12 @@ In&nbsp;[17]:
 </div>
 
 </div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[25]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3020,7 +3678,8 @@ In&nbsp;[18]:
 </div>
 </div>
 
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -3098,10 +3757,20 @@ In&nbsp;[18]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>pre-agregacja</p>
-</li>
-<li><p>spójny model danych</p>
-</li>
+<li>pre-agregacja</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>spójny model danych</li>
 </ul>
 </div>
 </div>
@@ -3185,6 +3854,10 @@ Reveal.initialize({
 controls: true,
 progress: true,
 history: true,
+
+width: 1024,
+height: 768,
+margin: 0.01,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
