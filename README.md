@@ -4,7 +4,7 @@ http://pywaw.org/35/
 
 ## "Czego nauczyłem się pracując z pandas"
 
-Available at / dostępne na: <URL> TODO
+Available at / dostępne na: http://pawroman.github.io/pywaw-pandas/
 
 ## How to build / jak zbudować ze źródła
 
