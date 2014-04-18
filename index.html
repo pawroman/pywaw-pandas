@@ -1748,7 +1748,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Co robi pandas?</li>
+<li>Czym jest pandas?</li>
 </ul>
 </div>
 </div>
@@ -1814,7 +1814,7 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="co-robi-pandas-">Co robi pandas?</h1>
+<h1 id="czym-jest-pandas-">Czym jest pandas?</h1>
 <hr>
 </div>
 </div>
@@ -1988,18 +1988,54 @@ div.output_prompt {
 <ul>
 <li>Najprościej: <code>[dict, dict, dict, ...]</code></li>
 <li>tuples + nazwy kolumn</li>
+</ul>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>CSV</li>
 <li>Excel</li>
+<li>JSON</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>SQL</li>
 <li>HDF5 (PyTables)</li>
-<li>JSON</li>
-<li>schowek systemowy</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li>źródła online (Google Finance, FRED, World Bank, ...)</li>
+<li>schowek systemowy</li>
 <li>więcej...</li>
 </ul>
 </div>
 </div>
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2013,11 +2049,11 @@ In&nbsp;[1]:
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span>
 
 <span class="n">posts_data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T10:00&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;helloł&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T10:00&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;hello world&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span>
     <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T13:37&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">666</span><span class="p">},</span>
     <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T15:35&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;biedny student&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;panda 3&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
     <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-02T19:42&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;veni, vidi, vici&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-02-04T12:02&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;The die is cast.&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-02-04T12:02&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Alea iacta est.&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
     <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-15T23:15&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kotek&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;miau miau&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">},</span>
 <span class="p">]</span>
 
@@ -2054,7 +2090,7 @@ In&nbsp;[1]:
       <th>0</th>
       <td> 1</td>
       <td>  56</td>
-      <td>           helloł</td>
+      <td>      hello world</td>
       <td>         Zbychu</td>
       <td> 2014-01-01T10:00</td>
     </tr>
@@ -2086,7 +2122,7 @@ In&nbsp;[1]:
       <th>4</th>
       <td> 5</td>
       <td>   6</td>
-      <td> The die is cast.</td>
+      <td>  Alea iacta est.</td>
       <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
     </tr>
@@ -2113,6 +2149,17 @@ In&nbsp;[1]:
     </section><section>
     <section>
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>SQL</p>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2130,11 +2177,11 @@ In&nbsp;[2]:
 <span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
     <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;posts&quot;</span>
     
-    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
+    <span class="nb">id</span>      <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">name</span>    <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
     <span class="n">message</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
-    <span class="n">likes</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
-    <span class="n">ts</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+    <span class="n">likes</span>   <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
+    <span class="n">ts</span>      <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s">u&quot;&lt;Post id={id}, name={name}, ts={ts}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
@@ -2152,7 +2199,8 @@ In&nbsp;[2]:
 </div>
 </div>
 
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2241,12 +2289,12 @@ In&nbsp;[5]:
     <div class="input_area">
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">pandas.io.sql</span> <span class="kn">import</span> <span class="n">read_frame</span>
 
-<span class="k">print</span> <span class="n">read_frame</span><span class="p">(</span><span class="s">&quot;SELECT * FROM posts WHERE ts &gt; &#39;2014-01-01&#39;&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">())</span>
+<span class="k">print</span> <span class="n">read_frame</span><span class="p">(</span><span class="s">&quot;SELECT * FROM posts WHERE ts &gt; &#39;2014-01-02&#39;&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">())</span>
 
 <span class="k">print</span> <span class="s">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span>
 
 <span class="k">print</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Post</span><span class="o">.</span><span class="n">ts</span> <span class="o">&gt;</span> <span class="s">&quot;2014-01-02&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <span class="p">])</span>
 </pre></div>
 
@@ -2261,25 +2309,19 @@ In&nbsp;[5]:
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-   id            name           message  likes                  ts
-0   1          Zbychu            helloł     56 2014-01-01 10:00:00
-1   2          Zbychu              None    666 2014-01-01 13:37:00
-2   3  biedny student           panda 3      2 2014-01-01 15:35:00
-3   4   julius_caesar  veni, vidi, vici     42 2014-01-02 19:42:00
-4   5   julius_caesar  The die is cast.      6 2014-02-04 12:02:00
-5   6           kotek         miau miau    512 2014-04-15 23:15:00
+   id           name           message  likes                  ts
+0   4  julius_caesar  veni, vidi, vici     42 2014-01-02 19:42:00
+1   5  julius_caesar   Alea iacta est.      6 2014-02-04 12:02:00
+2   6          kotek         miau miau    512 2014-04-15 23:15:00
 
-[6 rows x 5 columns]
+[3 rows x 5 columns]
 --------------------------------------------------------------------------------
-   id  likes           message            name                  ts
-0   1     56            helloł          Zbychu 2014-01-01 10:00:00
-1   2    666              None          Zbychu 2014-01-01 13:37:00
-2   3      2           panda 3  biedny student 2014-01-01 15:35:00
-3   4     42  veni, vidi, vici   julius_caesar 2014-01-02 19:42:00
-4   5      6  The die is cast.   julius_caesar 2014-02-04 12:02:00
-5   6    512         miau miau           kotek 2014-04-15 23:15:00
+   id  likes           message           name                  ts
+0   4     42  veni, vidi, vici  julius_caesar 2014-01-02 19:42:00
+1   5      6   Alea iacta est.  julius_caesar 2014-02-04 12:02:00
+2   6    512         miau miau          kotek 2014-04-15 23:15:00
 
-[6 rows x 5 columns]
+[3 rows x 5 columns]
 
 </pre>
 </div>
@@ -2297,27 +2339,167 @@ In&nbsp;[5]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>MongoDB</p>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+
+<span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">pandasTest</span>
+
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts_data</span><span class="p">:</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">post</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]},</span> <span class="n">post</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">find</span><span class="p">()))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[6]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_id</th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td> 5350ddafb87d7f506d0f12ab</td>
+      <td> 1</td>
+      <td>  56</td>
+      <td>      hello world</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T10:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 5350ddafb87d7f506d0f12ac</td>
+      <td> 2</td>
+      <td> 666</td>
+      <td>              NaN</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T13:37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 5350ddafb87d7f506d0f12ad</td>
+      <td> 3</td>
+      <td>   2</td>
+      <td>          panda 3</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td> 5350ddafb87d7f506d0f12ae</td>
+      <td> 4</td>
+      <td>  42</td>
+      <td> veni, vidi, vici</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5350ddafb87d7f506d0f12af</td>
+      <td> 5</td>
+      <td>   6</td>
+      <td>  Alea iacta est.</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 5350ddafb87d7f506d0f12b0</td>
+      <td> 6</td>
+      <td> 512</td>
+      <td>        miau miau</td>
+      <td>          kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+  </tbody>
+</table>
+<p>6 rows × 6 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="manipulacja-danymi">Manipulacja danymi</h1>
 <hr>
 <ul>
 <li>Indeksowanie</li>
 <li>Sortowanie</li>
-<li>Wypełnianie / usuwanie danych <code>N/A</code></li>
+<li>Wypełnianie / usuwanie danych &quot;N/A&quot;</li>
 <li>Mapowanie / operacje macierzowe</li>
 <li>Timeseries: resamplowanie, strefy czasowe</li>
 <li>Grupowanie</li>
-<li>...</li>
 </ul>
 </div>
 </div>
-</div></section>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Re-shape, maskowanie</li>
+<li>Zapytania a&#39;la SQL, merge, join</li>
+<li>Funkcje statystyczne, funkcje typu &quot;rolling&quot;</li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section>
     </section><section>
     <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[7]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2334,7 +2516,7 @@ In&nbsp;[6]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[6]:</div>
+    Out[7]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2370,7 +2552,7 @@ In&nbsp;[6]:
       <th>0</th>
       <td> 1</td>
       <td>  56</td>
-      <td>           helloł</td>
+      <td>      hello world</td>
       <td>         Zbychu</td>
       <td> 2014-01-01T10:00</td>
     </tr>
@@ -2386,7 +2568,7 @@ In&nbsp;[6]:
       <th>4</th>
       <td> 5</td>
       <td>   6</td>
-      <td> The die is cast.</td>
+      <td>  Alea iacta est.</td>
       <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
     </tr>
@@ -2416,7 +2598,7 @@ In&nbsp;[6]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[7]:
+In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2426,7 +2608,7 @@ In&nbsp;[7]:
 <span class="n">posts_sorted</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">][</span><span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;ignored&quot;</span>
 
 <span class="c"># bezpośrednia manipulacja</span>
-<span class="n">posts_sorted</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">posts_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 <span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">2</span>
 
 <span class="n">posts_sorted</span><span class="p">[[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]]</span>
@@ -2451,7 +2633,7 @@ Try using .loc[row_index,col_indexer] = value instead
 </div>
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[7]:</div>
+    Out[8]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2519,13 +2701,13 @@ Try using .loc[row_index,col_indexer] = value instead
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[8]:
+In&nbsp;[9]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># wybieranie po domyślnym indexie (range(len(posts)))</span>
+<div class="highlight"><pre><span class="c"># wybieranie po domyślnym indexie, jak indeksowanie list</span>
 <span class="k">print</span> <span class="n">posts</span><span class="o">.</span><span class="n">index</span>
-<span class="n">posts</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">posts</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2546,7 +2728,7 @@ Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
 </div>
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[8]:</div>
+    Out[9]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2563,28 +2745,28 @@ Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
   </thead>
   <tbody>
     <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td>  2</td>
+      <td>          panda 3</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+    <tr>
       <th>3</th>
       <td> 4</td>
-      <td>  42</td>
+      <td> 42</td>
       <td> veni, vidi, vici</td>
-      <td> julius_caesar</td>
+      <td>  julius_caesar</td>
       <td> 2014-01-02T19:42</td>
     </tr>
     <tr>
       <th>4</th>
       <td> 5</td>
-      <td>   6</td>
-      <td> The die is cast.</td>
-      <td> julius_caesar</td>
+      <td>  6</td>
+      <td>  Alea iacta est.</td>
+      <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td> 6</td>
-      <td> 512</td>
-      <td>        miau miau</td>
-      <td>         kotek</td>
-      <td> 2014-04-15T23:15</td>
     </tr>
   </tbody>
 </table>
@@ -2602,12 +2784,12 @@ Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[9]:
+In&nbsp;[10]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="n">posts_id</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
-<span class="n">posts_id</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">posts_id</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>   <span class="c"># inclusive</span>
 </pre></div>
 
 </div>
@@ -2619,7 +2801,7 @@ In&nbsp;[9]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[9]:</div>
+    Out[10]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2658,7 +2840,7 @@ In&nbsp;[9]:
     <tr>
       <th>5</th>
       <td>   6</td>
-      <td> The die is cast.</td>
+      <td>  Alea iacta est.</td>
       <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
     </tr>
@@ -2688,12 +2870,12 @@ In&nbsp;[9]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[10]:
+In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c"># indeksowanie po pozycji</span>
-<span class="n">posts_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">posts_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2705,17 +2887,53 @@ In&nbsp;[10]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[10]:</div>
+    Out[11]:</div>
 
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-likes                    56
-message              helloł
-name                 Zbychu
-ts         2014-01-01T10:00
-Name: 1, dtype: object
-</pre>
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>  2</td>
+      <td>          panda 3</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 42</td>
+      <td> veni, vidi, vici</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>  6</td>
+      <td>  Alea iacta est.</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 4 columns</p>
+</div>
 </div>
 
 </div>
@@ -2730,7 +2948,7 @@ Name: 1, dtype: object
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2759,10 +2977,10 @@ In&nbsp;[11]:
 
 [2 rows x 4 columns]
 
-                     id  likes  message            name
-2014-01-01 10:00:00   1     56   helloł          Zbychu
-2014-01-01 13:37:00   2    666      NaN          Zbychu
-2014-01-01 15:35:00   3      2  panda 3  biedny student
+                     id  likes      message            name
+2014-01-01 10:00:00   1     56  hello world          Zbychu
+2014-01-01 13:37:00   2    666          NaN          Zbychu
+2014-01-01 15:35:00   3      2      panda 3  biedny student
 
 [3 rows x 4 columns]
 
@@ -2780,7 +2998,7 @@ In&nbsp;[11]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[13]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2825,7 +3043,7 @@ Freq: A-DEC, Name: likes, dtype: int64
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[14]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2847,20 +3065,20 @@ In&nbsp;[13]:
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
                            id  likes           message            name
-2014-01-01 10:00:00+01:00   1     56            helloł          Zbychu
+2014-01-01 10:00:00+01:00   1     56       hello world          Zbychu
 2014-01-01 13:37:00+01:00   2    666               NaN          Zbychu
 2014-01-01 15:35:00+01:00   3      2           panda 3  biedny student
 2014-01-02 19:42:00+01:00   4     42  veni, vidi, vici   julius_caesar
-2014-02-04 12:02:00+01:00   5      6  The die is cast.   julius_caesar
+2014-02-04 12:02:00+01:00   5      6   Alea iacta est.   julius_caesar
 2014-04-15 23:15:00+02:00   6    512         miau miau           kotek
 
 [6 rows x 4 columns]
                            id  likes           message            name
-2014-01-01 17:00:00+08:00   1     56            helloł          Zbychu
+2014-01-01 17:00:00+08:00   1     56       hello world          Zbychu
 2014-01-01 20:37:00+08:00   2    666               NaN          Zbychu
 2014-01-01 22:35:00+08:00   3      2           panda 3  biedny student
 2014-01-03 02:42:00+08:00   4     42  veni, vidi, vici   julius_caesar
-2014-02-04 19:02:00+08:00   5      6  The die is cast.   julius_caesar
+2014-02-04 19:02:00+08:00   5      6   Alea iacta est.   julius_caesar
 2014-04-16 05:15:00+08:00   6    512         miau miau           kotek
 
 [6 rows x 4 columns]
@@ -2879,13 +3097,15 @@ In&nbsp;[13]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[15]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="k">print</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="k">print</span>
 <span class="k">print</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)[</span><span class="s">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c"># posts_id.groupby(&quot;name&quot;).size()</span>
+<span class="c"># posts_id[&quot;name&quot;].value_counts()</span>
 </pre></div>
 
 </div>
@@ -2929,7 +3149,7 @@ dtype: int64
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[16]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2978,7 +3198,7 @@ kotek has 512 likes!
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[16]:
+In&nbsp;[17]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3166,7 +3386,7 @@ PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[17]:
+In&nbsp;[18]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3209,7 +3429,7 @@ In&nbsp;[17]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[19]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3227,7 +3447,7 @@ In&nbsp;[18]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[18]:</div>
+    Out[19]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -3282,7 +3502,7 @@ In&nbsp;[18]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
+In&nbsp;[20]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3298,7 +3518,7 @@ In&nbsp;[19]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[19]:</div>
+    Out[20]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -3352,7 +3572,7 @@ In&nbsp;[19]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
+In&nbsp;[21]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3369,7 +3589,7 @@ In&nbsp;[20]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[20]:</div>
+    Out[21]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -3423,7 +3643,7 @@ In&nbsp;[20]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[21]:
+In&nbsp;[22]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3445,7 +3665,7 @@ In&nbsp;[21]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[21]:</div>
+    Out[22]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -3511,7 +3731,7 @@ In&nbsp;[21]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[22]:
+In&nbsp;[23]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3527,7 +3747,7 @@ In&nbsp;[22]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[22]:</div>
+    Out[23]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -3547,7 +3767,7 @@ dtype: object
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[23]:
+In&nbsp;[24]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3567,7 +3787,7 @@ In&nbsp;[23]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[23]:</div>
+    Out[24]:</div>
 
 
 <div class="output_text output_subarea output_pyout">
@@ -3591,6 +3811,128 @@ In&nbsp;[23]:
 
 </div>
     </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="performance">Performance</h1>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span><span class="p">;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span> <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;Python sort&quot;</span>
+<span class="o">%</span><span class="k">time</span> <span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Python *= 2&quot;</span>
+<span class="o">%</span><span class="k">time</span> <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">pandas construct and sort&quot;</span>
+<span class="o">%</span><span class="k">time</span> <span class="n">pandas_numbers</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">pandas *= 2&quot;</span>
+<span class="o">%</span><span class="k">time</span> <span class="n">pandas_numbers</span> <span class="o">*=</span> <span class="mi">2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+Python sort
+CPU times: user 490 ms, sys: 3.33 ms, total: 493 ms
+Wall time: 494 ms
+
+Python *= 2
+CPU times: user 76.7 ms, sys: 3.33 ms, total: 80 ms
+Wall time: 78.9 ms
+
+pandas construct and sort
+CPU times: user 233 ms, sys: 13.3 ms, total: 247 ms
+Wall time: 247 ms
+
+pandas *= 2
+CPU times: user 3.33 ms, sys: 3.33 ms, total: 6.67 ms
+Wall time: 1.99 ms
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="k">print</span> <span class="s">&quot;cumsum&quot;</span>
+<span class="o">%</span><span class="k">timeit</span> <span class="n">pandas_numbers</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">rolling_sum&quot;</span>
+<span class="o">%</span><span class="k">timeit</span> <span class="n">s</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">rolling_sum</span><span class="p">(</span><span class="n">pandas_numbers</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">assign&quot;</span>
+<span class="o">%</span><span class="k">timeit</span> <span class="n">a</span> <span class="o">=</span> <span class="n">pandas_numbers</span><span class="o">.</span><span class="n">ix</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+cumsum
+100 loops, best of 3: 3.13 ms per loop
+
+rolling_sum
+100 loops, best of 3: 8.51 ms per loop
+
+assign
+1000 loops, best of 3: 751 µs per loop
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section>
     </section><section>
     <section>
     
@@ -3634,7 +3976,7 @@ In&nbsp;[23]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[24]:
+In&nbsp;[27]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3661,7 +4003,7 @@ In&nbsp;[24]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[25]:
+In&nbsp;[28]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3719,6 +4061,19 @@ In&nbsp;[25]:
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>ogrom funkcjonalności</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>użyć jej dla wydajności - unikać &quot;pure Python&quot;</li>
 </ul>
 </div>
 </div>
