@@ -56,9 +56,6 @@
 <script>
 document.write( '<link rel="stylesheet" href="{{resources.reveal.url_prefix}}/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 
-Reveal.configure({
-width: 1024,
-});
 </script>
 
 <!-- custom fonts -->
