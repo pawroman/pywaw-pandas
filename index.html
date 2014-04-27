@@ -22,9 +22,6 @@
 <script>
 document.write( '<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/2.5.0/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
 
-Reveal.configure({
-width: 1024,
-});
 </script>
 
 <!-- custom fonts -->
@@ -1761,7 +1758,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Zastosowania</li>
+<li>Zastosowania, funkcjonalność</li>
 </ul>
 </div>
 </div>
@@ -1774,7 +1771,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>API - szybkie spojrzenie</li>
+<li>Przykłady</li>
 </ul>
 </div>
 </div>
@@ -1787,12 +1784,12 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Przykłady i wskazówki</li>
+<li>Moje doświadczenia i wskazówki</li>
 </ul>
 </div>
 </div>
 </div>
-    </div><div class="fragment">
+    </div><aside class="notes">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1800,12 +1797,15 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Moje doświadczenia</li>
+<li>Zacznę od tego, co składa się na pandas i jakie są zalety tej biblioteki</li>
+<li>Następnie opowiem krótko o dziedzinie zastosowań i funkcjonalności, czyli do czego można używać pandas</li>
+<li>Przedstawię kilka prostych, praktycznych przykładów ilustrujących podstawową funkcjonalność</li>
+<li>Wreszcie: opowiem o moich doświadczeniach i wnioskach, jakie z nich płyną i jakie uważam, że warto przekazać</li>
 </ul>
 </div>
 </div>
 </div>
-    </div></section>
+    </aside></section>
     </section><section>
     <section>
     
@@ -1852,7 +1852,20 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Wiele &quot;utils&quot;, szeroka funkcjonalność</li>
+<li>Dobre wsparcie dla &quot;timeseries&quot; i danych typu N/A</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Wydajność</li>
 </ul>
 </div>
 </div>
@@ -1878,12 +1891,12 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Wydajność!</li>
+<li><em>&quot;(...) it has the broader goal of becoming the <strong>most powerful and flexible open source data analysis / manipulation tool available in any language</strong>. It is already well on its way toward this goal.&quot;</em></li>
 </ul>
 </div>
 </div>
 </div>
-    </div><div class="fragment">
+    </div><aside class="notes">
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1891,12 +1904,17 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><em>&quot;(...) it has the broader goal of becoming the <strong>most powerful and flexible open source data analysis / manipulation tool available in any language</strong>. It is already well on its way toward this goal.&quot;</em></li>
+<li>pandas to przede wszystkim struktury danych, do reprezentacji danych jedno-dwu i trzy-wymiarowych, oraz algorytmy z nimi związane - do obliczeń numerycznych, statystycznych i innych</li>
+<li>struktury pandas mają spójne API, a spory nacisk postawiono na wygodę i funkcjonalność manipulacji danych</li>
+<li>bardzo dobre wsparcie dla danych czasowych, także bezproblemowa obsługa danych brakujących - tzn. możemy bezstresowo ładować niespójne dane, a to czego brakuje wyfiltrować, pominąć, lub wypełnić, a nawet interpolować</li>
+<li>wydajność - pandas jest pisane z dużym naciskiem na wydajność, większość modułów powstało w Cythonie i używając API NumPy, aby było jak najszybciej</li>
+<li>pandas używa intensywnie numpy - dane numeryczne są przechowywane jako wydajne array&#39;e numpy, i jest częścią całego takiego ekosystemu naukowego pythona, narzędzia te się zwykle lubią, dobrze integrują i pandas oficjalnie wpasowuje się w ten stack, dając nam ogromne możliwości</li>
+<li>tutaj taki cytat z oficjalnej dokumentacji: pandas chce być najbardziej funkcjonalnym i elastycznym narzędziem do analizy i manipulacji danych open source - być może jest to stwierdzenie trochę na wyrost, ale porównując pandas np. z językiem R - zdaje się że jest to uzasadnione i pokryte praktyką</li>
 </ul>
 </div>
 </div>
 </div>
-    </div></section>
+    </aside></section>
     </section><section>
     <section>
     
@@ -1917,7 +1935,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Obliczenia statystyczne</li>
+<li>Analiza, eksploracja danych</li>
 </ul>
 </div>
 </div>
@@ -1930,7 +1948,20 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Analiza, eksploracja danych</li>
+<li>Pre-processing, filtrowanie, oczyszczanie danych</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Obliczenia statystyczne, agregacja</li>
 </ul>
 </div>
 </div>
@@ -1956,81 +1987,7 @@ div.output_prompt {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Praca z danymi &quot;timeseries&quot;</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>(W moim przypadku) analiza i grupowanie danych z MongoDB</li>
-</ul>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-adowanie-danych">Ładowanie danych</h1>
-<hr>
-<ul>
-<li>Najprościej: <code>[dict, dict, dict, ...]</code></li>
-<li>tuples + nazwy kolumn</li>
-</ul>
-</div>
-</div>
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>CSV</li>
-<li>Excel</li>
-<li>JSON</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>SQL</li>
-<li>HDF5 (PyTables)</li>
-</ul>
-</div>
-</div>
-</div>
-    </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>źródła online (Google Finance, FRED, World Bank, ...)</li>
-<li>schowek systemowy</li>
-<li>więcej...</li>
+<li>(W moim przypadku) analiza i grupowanie danych z/do MongoDB</li>
 </ul>
 </div>
 </div>
@@ -2046,19 +2003,49 @@ In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
+<div class="highlight"><pre><span class="n">posts_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T10:00&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;hello world&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T13:37&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span>
+     <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T15:35&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;biedny student&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;pandas 3 bardzo proszę pls&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-02T19:42&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;veni, vidi, vici&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-02-04T12:02&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;coś po łacinie&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-15T23:15&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kotek&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;miau miau miau bardzo miau&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span>
+
+    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-15T18:30&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span>
+     <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;hello pandas hello hello&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span>
 
-<span class="n">posts_data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T10:00&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;hello world&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T13:37&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Zbychu&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">666</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-01T15:35&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;biedny student&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;panda 3&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-01-02T19:42&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;veni, vidi, vici&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-02-04T12:02&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;julius_caesar&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;Alea iacta est.&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">},</span>
-    <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-15T23:15&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kotek&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">:</span> <span class="s">&quot;miau miau&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">},</span>
-<span class="p">]</span>
-
 <span class="n">posts</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">posts_data</span><span class="p">)</span>
-<span class="n">posts</span>  <span class="c"># notebook: rich print last value</span>
+<span class="n">posts</span>
 </pre></div>
 
 </div>
@@ -2070,7 +2057,7 @@ In&nbsp;[1]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[1]:</div>
+    Out[2]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2089,54 +2076,62 @@ In&nbsp;[1]:
     <tr>
       <th>0</th>
       <td> 1</td>
-      <td>  56</td>
-      <td>      hello world</td>
+      <td> 16</td>
+      <td>                hello world</td>
       <td>         Zbychu</td>
       <td> 2014-01-01T10:00</td>
     </tr>
     <tr>
       <th>1</th>
       <td> 2</td>
-      <td> 666</td>
-      <td>              NaN</td>
+      <td> 20</td>
+      <td>                        NaN</td>
       <td>         Zbychu</td>
       <td> 2014-01-01T13:37</td>
     </tr>
     <tr>
       <th>2</th>
       <td> 3</td>
-      <td>   2</td>
-      <td>          panda 3</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
       <td> biedny student</td>
       <td> 2014-01-01T15:35</td>
     </tr>
     <tr>
       <th>3</th>
       <td> 4</td>
-      <td>  42</td>
-      <td> veni, vidi, vici</td>
+      <td> 22</td>
+      <td>           veni, vidi, vici</td>
       <td>  julius_caesar</td>
       <td> 2014-01-02T19:42</td>
     </tr>
     <tr>
       <th>4</th>
       <td> 5</td>
-      <td>   6</td>
-      <td>  Alea iacta est.</td>
+      <td> 10</td>
+      <td>             coś po łacinie</td>
       <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
     </tr>
     <tr>
       <th>5</th>
       <td> 6</td>
-      <td> 512</td>
-      <td>        miau miau</td>
+      <td>  5</td>
+      <td> miau miau miau bardzo miau</td>
       <td>          kotek</td>
       <td> 2014-04-15T23:15</td>
     </tr>
+    <tr>
+      <th>6</th>
+      <td> 7</td>
+      <td>  7</td>
+      <td>   hello pandas hello hello</td>
+      <td>         Zbychu</td>
+      <td> 2014-04-15T18:30</td>
+    </tr>
   </tbody>
 </table>
-<p>6 rows × 5 columns</p>
+<p>7 rows × 5 columns</p>
 </div>
 </div>
 
@@ -2149,61 +2144,6 @@ In&nbsp;[1]:
     </section><section>
     <section>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>SQL</p>
-<hr>
-</div>
-</div>
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[2]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Boolean</span><span class="p">,</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">Text</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.ext.declarative</span> <span class="kn">import</span> <span class="n">declarative_base</span>
-
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-
-<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
-
-<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
-    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s">&quot;posts&quot;</span>
-    
-    <span class="nb">id</span>      <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">name</span>    <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
-    <span class="n">message</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Text</span><span class="p">)</span>
-    <span class="n">likes</span>   <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">)</span>
-    <span class="n">ts</span>      <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">u&quot;&lt;Post id={id}, name={name}, ts={ts}&gt;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c"># represent Post object as dict, mapping column names to their values</span>
-        <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
-        
-        <span class="k">return</span> <span class="p">{</span>
-            <span class="n">col</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span>
-        <span class="p">}</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2211,26 +2151,99 @@ In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.exc</span> <span class="kn">import</span> <span class="n">IntegrityError</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">scoped_session</span><span class="p">,</span> <span class="n">sessionmaker</span>
-
-<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s">&quot;postgresql://pandas_test@localhost/pandas_test&quot;</span><span class="p">)</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">scoped_session</span><span class="p">(</span><span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">autocommit</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
-
-<span class="c"># create &#39;posts&#39; table</span>
-<span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="c"># insert some data</span>
-<span class="n">session</span><span class="o">.</span><span class="n">add_all</span><span class="p">([</span><span class="n">Post</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">posts_data</span><span class="p">])</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<span class="k">except</span> <span class="n">IntegrityError</span><span class="p">:</span>
-    <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+<div class="highlight"><pre><span class="n">posts</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&quot;[ No Comment ]&quot;</span><span class="p">)</span>
+<span class="n">posts</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td> 22</td>
+      <td>           veni, vidi, vici</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 2</td>
+      <td> 20</td>
+      <td>             [ No Comment ]</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T13:37</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td> 16</td>
+      <td>                hello world</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T10:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5</td>
+      <td> 10</td>
+      <td>             coś po łacinie</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td> 7</td>
+      <td>  7</td>
+      <td>   hello pandas hello hello</td>
+      <td>         Zbychu</td>
+      <td> 2014-04-15T18:30</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 6</td>
+      <td>  5</td>
+      <td> miau miau miau bardzo miau</td>
+      <td>          kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 5 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -2245,7 +2258,8 @@ In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<div class="highlight"><pre><span class="n">posts</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">posts</span><span class="o">.</span><span class="n">likes</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&quot;utf8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="n">posts</span>
 </pre></div>
 
 </div>
@@ -2259,16 +2273,80 @@ In&nbsp;[4]:
 <div class="output_area"><div class="prompt output_prompt">
     Out[4]:</div>
 
-
-<div class="output_text output_subarea output_pyout">
-<pre>
-[&lt;Post id=1, name=Zbychu, ts=2014-01-01 10:00:00&gt;,
- &lt;Post id=2, name=Zbychu, ts=2014-01-01 13:37:00&gt;,
- &lt;Post id=3, name=biedny student, ts=2014-01-01 15:35:00&gt;,
- &lt;Post id=4, name=julius_caesar, ts=2014-01-02 19:42:00&gt;,
- &lt;Post id=5, name=julius_caesar, ts=2014-02-04 12:02:00&gt;,
- &lt;Post id=6, name=kotek, ts=2014-04-15 23:15:00&gt;]
-</pre>
+<div class="output_html rendered_html output_subarea output_pyout">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>likes</th>
+      <th>message</th>
+      <th>name</th>
+      <th>ts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td> 4</td>
+      <td> 22</td>
+      <td>           VENI, VIDI, VICI</td>
+      <td>  julius_caesar</td>
+      <td> 2014-01-02T19:42</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td> 2</td>
+      <td> 20</td>
+      <td>             [ NO COMMENT ]</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T13:37</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td> 1</td>
+      <td> 16</td>
+      <td>                HELLO WORLD</td>
+      <td>         Zbychu</td>
+      <td> 2014-01-01T10:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td> 5</td>
+      <td> 10</td>
+      <td>             COŚ PO ŁACINIE</td>
+      <td>  julius_caesar</td>
+      <td> 2014-02-04T12:02</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td> 7</td>
+      <td>  7</td>
+      <td>   hello pandas hello hello</td>
+      <td>         Zbychu</td>
+      <td> 2014-04-15T18:30</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td> 6</td>
+      <td>  5</td>
+      <td> miau miau miau bardzo miau</td>
+      <td>          kotek</td>
+      <td> 2014-04-15T23:15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td> 3</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
+      <td> biedny student</td>
+      <td> 2014-01-01T15:35</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 5 columns</p>
+</div>
 </div>
 
 </div>
@@ -2287,81 +2365,8 @@ In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pandas.io.sql</span> <span class="kn">import</span> <span class="n">read_frame</span>
-
-<span class="k">print</span> <span class="n">read_frame</span><span class="p">(</span><span class="s">&quot;SELECT * FROM posts WHERE ts &gt; &#39;2014-01-02&#39;&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">())</span>
-
-<span class="k">print</span> <span class="s">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span>
-
-<span class="k">print</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Post</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Post</span><span class="o">.</span><span class="n">ts</span> <span class="o">&gt;</span> <span class="s">&quot;2014-01-02&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
-<span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-   id           name           message  likes                  ts
-0   4  julius_caesar  veni, vidi, vici     42 2014-01-02 19:42:00
-1   5  julius_caesar   Alea iacta est.      6 2014-02-04 12:02:00
-2   6          kotek         miau miau    512 2014-04-15 23:15:00
-
-[3 rows x 5 columns]
---------------------------------------------------------------------------------
-   id  likes           message           name                  ts
-0   4     42  veni, vidi, vici  julius_caesar 2014-01-02 19:42:00
-1   5      6   Alea iacta est.  julius_caesar 2014-02-04 12:02:00
-2   6    512         miau miau          kotek 2014-04-15 23:15:00
-
-[3 rows x 5 columns]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>MongoDB</p>
-<hr>
-</div>
-</div>
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[6]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
-
-<span class="n">mongo</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">mongo</span><span class="o">.</span><span class="n">pandasTest</span>
-
-<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts_data</span><span class="p">:</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="n">post</span><span class="p">[</span><span class="s">&quot;id&quot;</span><span class="p">]},</span> <span class="n">post</span><span class="p">,</span> <span class="n">upsert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-
-<span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">find</span><span class="p">()))</span>
+<div class="highlight"><pre><span class="n">posts_id</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
+<span class="n">posts_id</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2373,7 +2378,7 @@ In&nbsp;[6]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[6]:</div>
+    Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_pyout">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -2381,72 +2386,51 @@ In&nbsp;[6]:
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>_id</th>
-      <th>id</th>
       <th>likes</th>
       <th>message</th>
       <th>name</th>
       <th>ts</th>
     </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td> 5350ddafb87d7f506d0f12ab</td>
-      <td> 1</td>
-      <td>  56</td>
-      <td>      hello world</td>
-      <td>         Zbychu</td>
-      <td> 2014-01-01T10:00</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td> 5350ddafb87d7f506d0f12ac</td>
-      <td> 2</td>
-      <td> 666</td>
-      <td>              NaN</td>
-      <td>         Zbychu</td>
-      <td> 2014-01-01T13:37</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td> 5350ddafb87d7f506d0f12ad</td>
-      <td> 3</td>
-      <td>   2</td>
-      <td>          panda 3</td>
+      <th>3</th>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
       <td> biedny student</td>
       <td> 2014-01-01T15:35</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td> 5350ddafb87d7f506d0f12ae</td>
-      <td> 4</td>
-      <td>  42</td>
-      <td> veni, vidi, vici</td>
+      <th>4</th>
+      <td> 22</td>
+      <td>           VENI, VIDI, VICI</td>
       <td>  julius_caesar</td>
       <td> 2014-01-02T19:42</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td> 5350ddafb87d7f506d0f12af</td>
-      <td> 5</td>
-      <td>   6</td>
-      <td>  Alea iacta est.</td>
+      <th>5</th>
+      <td> 10</td>
+      <td>             COŚ PO ŁACINIE</td>
       <td>  julius_caesar</td>
       <td> 2014-02-04T12:02</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td> 5350ddafb87d7f506d0f12b0</td>
-      <td> 6</td>
-      <td> 512</td>
-      <td>        miau miau</td>
+      <th>6</th>
+      <td>  5</td>
+      <td> miau miau miau bardzo miau</td>
       <td>          kotek</td>
       <td> 2014-04-15T23:15</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 6 columns</p>
+<p>4 rows × 4 columns</p>
 </div>
 </div>
 
@@ -2455,46 +2439,26 @@ In&nbsp;[6]:
 </div>
 </div>
 
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
-<div class="cell border-box-sizing text_cell rendered">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="manipulacja-danymi">Manipulacja danymi</h1>
-<hr>
-<ul>
-<li>Indeksowanie</li>
-<li>Sortowanie</li>
-<li>Wypełnianie / usuwanie danych &quot;N/A&quot;</li>
-<li>Mapowanie / operacje macierzowe</li>
-<li>Timeseries: resamplowanie, strefy czasowe</li>
-<li>Grupowanie</li>
-</ul>
+    <div class="input_area">
+<div class="highlight"><pre><span class="n">posts_ts</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">)</span>
+<span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span>
+</pre></div>
+
 </div>
 </div>
+</div>
+
 </div><div class="fragment">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Re-shape, maskowanie</li>
-<li>Zapytania a&#39;la SQL, merge, join</li>
-<li>Funkcje statystyczne, funkcje typu &quot;rolling&quot;</li>
-</ul>
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2503,8 +2467,7 @@ In&nbsp;[7]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_sorted</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">&quot;&lt;no comment&gt;&quot;</span><span class="p">)</span>
-<span class="n">posts_sorted</span>
+<div class="highlight"><pre><span class="n">posts_ts</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s">&quot;2014-01-01 12:00&quot;</span><span class="p">:</span><span class="s">&quot;2014-01-01T16:00&quot;</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2528,61 +2491,26 @@ In&nbsp;[7]:
       <th>likes</th>
       <th>message</th>
       <th>name</th>
-      <th>ts</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>2014-01-01 13:37:00</th>
       <td> 2</td>
-      <td> 666</td>
-      <td>     &lt;no comment&gt;</td>
+      <td> 20</td>
+      <td>             [ NO COMMENT ]</td>
       <td>         Zbychu</td>
-      <td> 2014-01-01T13:37</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td> 6</td>
-      <td> 512</td>
-      <td>        miau miau</td>
-      <td>          kotek</td>
-      <td> 2014-04-15T23:15</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td> 1</td>
-      <td>  56</td>
-      <td>      hello world</td>
-      <td>         Zbychu</td>
-      <td> 2014-01-01T10:00</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td> 4</td>
-      <td>  42</td>
-      <td> veni, vidi, vici</td>
-      <td>  julius_caesar</td>
-      <td> 2014-01-02T19:42</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td> 5</td>
-      <td>   6</td>
-      <td>  Alea iacta est.</td>
-      <td>  julius_caesar</td>
-      <td> 2014-02-04T12:02</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <th>2014-01-01 15:35:00</th>
       <td> 3</td>
-      <td>   2</td>
-      <td>          panda 3</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
       <td> biedny student</td>
-      <td> 2014-01-01T15:35</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 5 columns</p>
+<p>2 rows × 4 columns</p>
 </div>
 </div>
 
@@ -2591,7 +2519,8 @@ In&nbsp;[7]:
 </div>
 </div>
 
-</div></section>
+</div>
+    </div></section>
     </section><section>
     <section>
     
@@ -2602,16 +2531,8 @@ In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;replacement&quot;</span>
-
-<span class="c"># zwraca kopię, będzie warning</span>
-<span class="n">posts_sorted</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">][</span><span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;ignored&quot;</span>
-
-<span class="c"># bezpośrednia manipulacja</span>
-<span class="n">posts_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;message&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-<span class="n">posts_sorted</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">2</span>
-
-<span class="n">posts_sorted</span><span class="p">[[</span><span class="s">&quot;id&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="s">&quot;message&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span class="n">posts_warsaw</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s">&quot;UTC&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s">&quot;Europe/Warsaw&quot;</span><span class="p">)</span>
+<span class="n">posts_warsaw</span>
 </pre></div>
 
 </div>
@@ -2621,16 +2542,6 @@ In&nbsp;[8]:
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>
--c:4: SettingWithCopyWarning: A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_index,col_indexer] = value instead
-
-</pre>
-</div>
-</div>
 
 <div class="output_area"><div class="prompt output_prompt">
     Out[8]:</div>
@@ -2644,48 +2555,62 @@ Try using .loc[row_index,col_indexer] = value instead
       <th>id</th>
       <th>likes</th>
       <th>message</th>
+      <th>name</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td> 2</td>
-      <td>-1332</td>
-      <td> REPLACEMENT</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td> 6</td>
-      <td>-1024</td>
-      <td> REPLACEMENT</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td> 1</td>
-      <td> -112</td>
-      <td> REPLACEMENT</td>
-    </tr>
-    <tr>
-      <th>3</th>
+      <th>2014-01-02 20:42:00+01:00</th>
       <td> 4</td>
-      <td>  -84</td>
-      <td> REPLACEMENT</td>
+      <td> 22</td>
+      <td>           VENI, VIDI, VICI</td>
+      <td>  julius_caesar</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2014-01-01 14:37:00+01:00</th>
+      <td> 2</td>
+      <td> 20</td>
+      <td>             [ NO COMMENT ]</td>
+      <td>         Zbychu</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 11:00:00+01:00</th>
+      <td> 1</td>
+      <td> 16</td>
+      <td>                HELLO WORLD</td>
+      <td>         Zbychu</td>
+    </tr>
+    <tr>
+      <th>2014-02-04 13:02:00+01:00</th>
       <td> 5</td>
-      <td>  -12</td>
-      <td> replacement</td>
+      <td> 10</td>
+      <td>             COŚ PO ŁACINIE</td>
+      <td>  julius_caesar</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>2014-04-15 20:30:00+02:00</th>
+      <td> 7</td>
+      <td>  7</td>
+      <td>   hello pandas hello hello</td>
+      <td>         Zbychu</td>
+    </tr>
+    <tr>
+      <th>2014-04-16 01:15:00+02:00</th>
+      <td> 6</td>
+      <td>  5</td>
+      <td> miau miau miau bardzo miau</td>
+      <td>          kotek</td>
+    </tr>
+    <tr>
+      <th>2014-01-01 16:35:00+01:00</th>
       <td> 3</td>
-      <td>   -4</td>
-      <td> replacement</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
+      <td> biedny student</td>
     </tr>
   </tbody>
 </table>
-<p>6 rows × 3 columns</p>
+<p>7 rows × 4 columns</p>
 </div>
 </div>
 
@@ -2705,9 +2630,8 @@ In&nbsp;[9]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># wybieranie po domyślnym indexie, jak indeksowanie list</span>
-<span class="k">print</span> <span class="n">posts</span><span class="o">.</span><span class="n">index</span>
-<span class="n">posts</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">posts_by_day</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&quot;sum&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">posts_by_day</span>
 </pre></div>
 
 </div>
@@ -2717,15 +2641,6 @@ In&nbsp;[9]:
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
-
-</pre>
-</div>
-</div>
 
 <div class="output_area"><div class="prompt output_prompt">
     Out[9]:</div>
@@ -2738,39 +2653,32 @@ Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
       <th></th>
       <th>id</th>
       <th>likes</th>
-      <th>message</th>
-      <th>name</th>
-      <th>ts</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td> 3</td>
-      <td>  2</td>
-      <td>          panda 3</td>
-      <td> biedny student</td>
-      <td> 2014-01-01T15:35</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td> 4</td>
-      <td> 42</td>
-      <td> veni, vidi, vici</td>
-      <td>  julius_caesar</td>
-      <td> 2014-01-02T19:42</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td> 5</td>
+      <th>2014-01-01</th>
       <td>  6</td>
-      <td>  Alea iacta est.</td>
-      <td>  julius_caesar</td>
-      <td> 2014-02-04T12:02</td>
+      <td> 39</td>
+    </tr>
+    <tr>
+      <th>2014-01-02</th>
+      <td>  4</td>
+      <td> 22</td>
+    </tr>
+    <tr>
+      <th>2014-02-04</th>
+      <td>  5</td>
+      <td> 10</td>
+    </tr>
+    <tr>
+      <th>2014-04-15</th>
+      <td> 13</td>
+      <td> 12</td>
     </tr>
   </tbody>
 </table>
-<p>3 rows × 5 columns</p>
+<p>4 rows × 2 columns</p>
 </div>
 </div>
 
@@ -2779,7 +2687,9 @@ Int64Index([0, 1, 2, 3, 4, 5], dtype=&apos;int64&apos;)
 </div>
 </div>
 
-</div><div class="fragment">
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2788,8 +2698,11 @@ In&nbsp;[10]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_id</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span>
-<span class="n">posts_id</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>   <span class="c"># inclusive</span>
+<div class="highlight"><pre><span class="n">by_month</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="s">&quot;likes&quot;</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span>
+<span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">by_month</span>
 </pre></div>
 
 </div>
@@ -2808,48 +2721,41 @@ In&nbsp;[10]:
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
-      <th>likes</th>
-      <th>message</th>
       <th>name</th>
-      <th>ts</th>
-    </tr>
-    <tr>
-      <th>id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Zbychu</th>
+      <th>biedny student</th>
+      <th>julius_caesar</th>
+      <th>kotek</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>3</th>
-      <td>   2</td>
-      <td>          panda 3</td>
-      <td> biedny student</td>
-      <td> 2014-01-01T15:35</td>
+      <th>2014-04-30</th>
+      <td>  7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>  5</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>  42</td>
-      <td> veni, vidi, vici</td>
-      <td>  julius_caesar</td>
-      <td> 2014-01-02T19:42</td>
+      <th>2014-03-31</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>   6</td>
-      <td>  Alea iacta est.</td>
-      <td>  julius_caesar</td>
-      <td> 2014-02-04T12:02</td>
+      <th>2014-02-28</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td> 10</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td> 512</td>
-      <td>        miau miau</td>
-      <td>          kotek</td>
-      <td> 2014-04-15T23:15</td>
+      <th>2014-01-31</th>
+      <td> 18</td>
+      <td>  3</td>
+      <td> 22</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -2862,8 +2768,7 @@ In&nbsp;[10]:
 </div>
 </div>
 
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
@@ -2874,339 +2779,9 @@ In&nbsp;[11]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># indeksowanie po pozycji</span>
-<span class="n">posts_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[11]:</div>
-
-<div class="output_html rendered_html output_subarea output_pyout">
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>likes</th>
-      <th>message</th>
-      <th>name</th>
-      <th>ts</th>
-    </tr>
-    <tr>
-      <th>id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3</th>
-      <td>  2</td>
-      <td>          panda 3</td>
-      <td> biedny student</td>
-      <td> 2014-01-01T15:35</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td> 42</td>
-      <td> veni, vidi, vici</td>
-      <td>  julius_caesar</td>
-      <td> 2014-01-02T19:42</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>  6</td>
-      <td>  Alea iacta est.</td>
-      <td>  julius_caesar</td>
-      <td> 2014-02-04T12:02</td>
-    </tr>
-  </tbody>
-</table>
-<p>3 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[12]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_ts</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">)</span>
-<span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span>
-
-<span class="k">print</span> <span class="n">posts_ts</span><span class="p">[</span><span class="s">&quot;2014-01-01 13:37&quot;</span><span class="p">:</span><span class="s">&quot;2014-01-01 16:00&quot;</span><span class="p">]</span>
-<span class="k">print</span>
-<span class="k">print</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="s">&quot;2014-01-01 16:00&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-                     id  likes  message            name
-2014-01-01 13:37:00   2    666      NaN          Zbychu
-2014-01-01 15:35:00   3      2  panda 3  biedny student
-
-[2 rows x 4 columns]
-
-                     id  likes      message            name
-2014-01-01 10:00:00   1     56  hello world          Zbychu
-2014-01-01 13:37:00   2    666          NaN          Zbychu
-2014-01-01 15:35:00   3      2      panda 3  biedny student
-
-[3 rows x 4 columns]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[13]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&quot;sum&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="k">print</span>
-<span class="k">print</span> <span class="n">posts_ts</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&quot;sum&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-            id  likes
-2014-01-01   6    724
-2014-01-02   4     42
-2014-02-04   5      6
-2014-04-15   6    512
-
-[4 rows x 2 columns]
-
-2014-12-31    1284
-Freq: A-DEC, Name: likes, dtype: int64
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[14]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_waw</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s">&quot;Europe/Warsaw&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">posts_waw</span>
-
-<span class="k">print</span> <span class="n">posts_waw</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s">&quot;Asia/Shanghai&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-                           id  likes           message            name
-2014-01-01 10:00:00+01:00   1     56       hello world          Zbychu
-2014-01-01 13:37:00+01:00   2    666               NaN          Zbychu
-2014-01-01 15:35:00+01:00   3      2           panda 3  biedny student
-2014-01-02 19:42:00+01:00   4     42  veni, vidi, vici   julius_caesar
-2014-02-04 12:02:00+01:00   5      6   Alea iacta est.   julius_caesar
-2014-04-15 23:15:00+02:00   6    512         miau miau           kotek
-
-[6 rows x 4 columns]
-                           id  likes           message            name
-2014-01-01 17:00:00+08:00   1     56       hello world          Zbychu
-2014-01-01 20:37:00+08:00   2    666               NaN          Zbychu
-2014-01-01 22:35:00+08:00   3      2           panda 3  biedny student
-2014-01-03 02:42:00+08:00   4     42  veni, vidi, vici   julius_caesar
-2014-02-04 19:02:00+08:00   5      6   Alea iacta est.   julius_caesar
-2014-04-16 05:15:00+08:00   6    512         miau miau           kotek
-
-[6 rows x 4 columns]
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[15]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">print</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="k">print</span>
-<span class="k">print</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)[</span><span class="s">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="c"># posts_id.groupby(&quot;name&quot;).size()</span>
-<span class="c"># posts_id[&quot;name&quot;].value_counts()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-                likes
-name                 
-Zbychu            722
-biedny student      2
-julius_caesar      48
-kotek             512
-
-[4 rows x 1 columns]
-
-name
-Zbychu            2
-biedny student    1
-julius_caesar     2
-kotek             1
-dtype: int64
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[16]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">posts_id</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s">&quot;{} has {} likes!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">frame</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-Zbychu has 722 likes!
-biedny student has 2 likes!
-julius_caesar has 48 likes!
-kotek has 512 likes!
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="wykresy">Wykresy</h1>
-<hr>
-</div>
-</div>
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[17]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
 <div class="highlight"><pre><span class="o">%</span><span class="k">matplotlib</span> <span class="n">inline</span>
 
-<span class="n">by_likes</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-
-<span class="n">plot</span> <span class="o">=</span> <span class="n">by_likes</span><span class="p">[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&quot;barh&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;Likes by post id&quot;</span><span class="p">)</span>
+<span class="n">plots</span> <span class="o">=</span> <span class="n">by_month</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">&quot;barh&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;Posts per month per user&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -3221,143 +2796,310 @@ In&nbsp;[17]:
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-c+aoinFTL7zwAuLj43H//ff7rysvL8egQYPQpUsXDB48uN7LwmbNmoXOnTujW7du2LRpk4rIfiUl
-JXjsscfQo0cP3HfffVi4cCEAffKfP38effr0QXp6OlJTUzFlyhQA+uSvU1NTA7fbjYyMDAB65Xe5
-XHjggQfgdrvRu3dvAHrlr6ysxMiRI9G9e3ekpqbiX//6lzb5//vf/8LtdvsvrVq1wsKFC4OXXxS4
-dOmSpKSkiNfrFZ/PJ2lpaXLw4EEVUW5q+/btUlBQIPfdd5//ujfffFPmzJkjIiKzZ8+WyZMni4jI
-gQMHJC0tTXw+n3i9XklJSZGamholuUVESktLZc+ePSIicvr0aenSpYscPHhQm/wiImfOnBERkYsX
-L0qfPn0kPz9fq/wiInPnzpXnnntOMjIyRESfvz8iIi6XS06dOlXvOp3yjx07VhYvXiwil/8OVVZW
-apW/Tk1NjSQkJEhxcXHQ8isZ/Dt37pQhQ4b4t2fNmiWzZs1SEeWWvF5vvcHftWtXOX78uIhcHq5d
-u3YVEZGZM2fK7Nmz/fcbMmSI7Nq1K7Rhb+Kpp56SzZs3a5n/zJkz0rNnT/nPf/6jVf6SkhJ5/PHH
-ZevWrfLkk0+KiF5/f1wul5w8ebLedbrkr6yslI4dO153vS75r7Vx40Z5+OGHRSR4+ZVUPV9//TWS
-k5P920lJSfj6669VRAnYN998g/j4eABAfHw8vvnmGwDAsWPHkJSU5L9fOD2noqIi7NmzB3369NEq
-f21tLdLT0xEfH++vrXTK//Of/xy//e1vERV19Z+ZTvkNw8D3v/999OzZE3/4wx8A6JPf6/UiLi4O
-zz//PB588EGMHz8eZ86c0Sb/tVauXInRo0cDCN73X8ngv/yRi/ozDOOmzyUcnmd1dTVGjBiBBQsW
-wOFw1Lst3PNHRUWhsLAQR48exfbt25GXl1fv9nDOn5OTg7Zt28Ltdjd4+txwzg8AO3bswJ49e7Bh
-wwb87ne/Q35+fr3bwzn/pUuXUFBQgFdeeQUFBQVo0aIFZs+eXe8+4Zy/js/nw9q1a/HMM89cd5uV
-/EoGf/v27VFSUuLfLikpqffTKpzFx8fj+PHjAIDS0lK0bdsWwPXP6ejRo2jfvr2SjHUuXryIESNG
-IDMzE08//TQAvfLXadWqFX7wgx/gs88+0yb/zp07sWbNGnTs2BGjR4/G1q1bkZmZqU1+AEhMTAQA
-xMXFYdiwYdi9e7c2+ZOSkpCUlIRevXoBAEaOHImCggIkJCRokb/Ohg0b8NBDDyEuLg5A8P79Khn8
-PXv2xOHDh1FUVASfz4dVq1Zh6NChKqIEbOjQoVi2bBkAYNmyZf6BOnToUKxcuRI+nw9erxeHDx/2
-vxJCBRHBj3/8Y6SmpmLixIn+63XJf/LkSf8rFs6dO4fNmzfD7XZrk3/mzJkoKSmB1+vFypUrMXDg
-QCxfvlyb/GfPnsXp06cBAGfOnMGmTZtw//33a5M/ISEBycnJOHToEADgk08+QY8ePZCRkaFF/jof
-f/yxv+YBgvjv17YjErewfv166dKli6SkpMjMmTNVxbipUaNGSWJiojRt2lSSkpLkT3/6k5w6dUoe
-f/xx6dy5swwaNEgqKir8958xY4akpKRI165dJTc3V2Fykfz8fDEMQ9LS0iQ9PV3S09Nlw4YN2uTf
-t2+fuN1uSUtLk/vvv1/ee+89ERFt8l/LNE3/q3p0yf/VV19JWlqapKWlSY8ePfz/RnXJLyJSWFgo
-PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
-4CciijAc/EREEYaDn4gownDwExFFGA5+IqII839dPOzyXrDBIwAAAABJRU5ErkJggg==
+<img src="data:image/png;base64,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
+JEkhISHq0qWLLr744jLzFRYWavLkyZowYYJOxlpWXl6eCgoK1LFjR0nSiBEj3HM3bdpUSUlJCgqq
+uNvB5XKVOmaDBg3c6z169FBoaGiF48s7t3nz5mno0KGqWbOm4uLiFB8fr9WrV/vceNgr09sB4Lxk
+ejsAnLNMbweA85Lp7QBwQZ11z2tWVpbWr1+vTp06SZL27t2riIgISVJERIT27t1ban/HccrM8eij
+j+r+++9XSEhIucfJyclRdHS0ez0qKspdMFfGa6+9pvj4eN17773KyMio1Njyzi03N7dUbNHR0crN
+zZUkjR49WuvWrbvg48/lZwMAAGCrsypeCwsLdeONN2rKlCker1o6juOxWD3dhg0btGPHDg0cOLDc
+q65V6Y477tC2bdv00ksv6dZbbz3nec7m3CRp+vTp6tChwwUffzZzwx7dvR0Azkt3bweAc9bd2wHg
+vHT3dgC4oGqcaYeioiINGjRIw4cP13XXXed+PiIiQvn5+YqMjFReXp4aNWpU4TyrVq3SmjVr1KxZ
+MxUXF2vfvn3q0aOHli1bpg4dOshxHA0cOFBjxozRnj173OP27NmjqKioMvOdXrRNmDBBixYtkuM4
+7quXp9x8880aM2ZMuWM9Ke/coqKilJ2dfcbYvD1eOnnzYwAA4JvCXS5lZmZKkrp37y5JAbN+6nFW
+VpbORYXfsGWMUXp6uurXr6/JkyeX2vbAAw+ofv36evDBBzVp0iQdOnRIkyZNcm9/8803tXbtWr3y
+yitl5t21a5f69eunb7/91uNxO3XqpKlTp6pjx476wx/+oLvuukt9+vRxbx85cqT69++vQYMGeRy/
+bds2xcfHS5IWLFig559/XitXrnRvz8zM1IsvvqgFCxZ4HF/euW3evFm33HKLVq9erZycHF1zzTXa
+tm1bmWLY2+Mdx5Emejy1wDNRF+RKf1XJzMx0v8hhH/JnL3JnN/Jntyr9hq0vv/xSs2fP1vLly9W+
+fXu1b99eS5YskST99a9/1aeffqpWrVrp888/11//+lf3uLi4ON1333168803FRsbq++//77UvMaY
+Cq9+vvbaaxo1apRatmyp+Ph4d+H69ddfKyYmRu+//77+/Oc/l3u7rb/97W9KTExU+/bt9corr2jG
+jBnubd26ddPgwYP12WefKSYmRp9++mmZ8eWdW9u2bTV48GC1bdtWffv21WuvveY+j9GjR2vt2rVe
+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
+cL7UnnEhY6F4BXxI9+7dvR0CzgP5sxe5q34FPxdIE1VtS8HPBWcdy+rVq5WQkKB69erp1ltv1bFj
+xySVfRs9NzdXgwYNUqNGjdS8eXO98sor7m1Hjx7VyJEjVa9ePSUkJOjrr78udYy4uDi9+OKLSk5O
+Vt26dTVkyBD3cRITE7Vw4UL3vkVFRWrQoIE2btxYJtb9+/erX79+Cg8PV/369XXVVVfJGKO0tDTt
+3r1b/fv3l8vl0gsvvOCxDeD0NokzxVzR+U6cOFGDBw9Wenq6wsLClJiYqLVr10qSx1iqE8UrAAAI
+GMYYzZ07V0uXLtX27dv1448/6umnny6zX0lJifr376/27dsrNzdXn332mV5++WUtXbpUkvTEE09o
+586d2rFjhz755BPNnDmzVDuC4zh677339Mknn2jnzp365ptv9Oabb0qS0tPTNXv2bPe+H3/8saKi
+opScnFwmjhdffFExMTHav3+/9u3bp4yMDDmOo1mzZik2NlYLFy5UQUGB7r//fo/ne3qbREUxn+l8
+JWnBggUaOnSofv75Zw0YMEBjx46VpLOOpapQvAI+hL47u5E/e5G7wOE4jsaOHauoqCiFh4frkUce
+0VtvvVVmv6+//lr79+/XhAkTVKNGDTVr1kyjRo3S22+/LUl677339Mgjj6hu3bqKjo7WuHHjyrxt
+ftdddykyMlLh4eHq37+/NmzYIEkaNmyYFi1a5P662VmzZiktLc1jvBdddJHy8vKUlZWl4OBgdenS
+5ZzPvaKYz3S+0sme4D59+shxHA0fPtzjleILgeIVAAAElNPfWo+NjVVubm6ZfXbt2qXc3FyFh4e7
+l4yMDO3bt0/SybfYfzvPb0VGRrofX3LJJe5itUmTJurSpYvef/99HTp0SEuWLNGwYcM8xjp+/HjF
+x8erd+/eatGihZ577rlzO+kzxHym85WkiIgI9+OQkBD9+uuvKikpOed4zhVfUgD4EPru7Eb+7EXu
+Asvu3btLPW7SpEmZfWJiYtSsWTP9+OOPHudo3Lixdu/erTZt2pSZ05Pf3uEgPT1db7zxhoqKitS5
+c2c1btzY47jQ0FC98MILeuGFF7Rp0yb16NFDHTt2VGpqapk5a9eurV9++cW9fuLECf33v/89q5jP
+dL7l3aHhbLdXpQqvvGZnZys1NVUJCQlKTEzU1KlT3dsOHDigXr16qVWrVurdu7cOHTrkfj41NVUu
+l0t33nmnx3kHDBigpKSkco+7du1aJSUlqWXLlho3blyZ7R988IGCgoK0bt06j+OnTZumdu3aqX37
+9rryyitLXdaeOXOmWrVqpVatWumf//ynx/HlnZskZWRkqGXLlmrdunWpPhBfGg8AADwzxujVV19V
+Tk6ODhw4oGeeeUZDhgwps1/Hjh3lcrn0/PPP6+jRozpx4oS+++47rVmzRpI0ePBgZWRk6NChQ9qz
+Z0+pDzeVd9zTXX/99Vq3bp2mTp2qESNGlDtu0aJF2rZtm4wxCgsLU3BwsIKCTpZvERER2r59u3vf
+Vq1a6ddff9XHH3+soqIiPf300+4PiZ0p5jOd75nuJPDbWKpThcVrzZo1NXnyZG3atEmrVq3Sq6++
+6r7/2aRJk9SrVy/9+OOP6tmzpyZNmiRJqlWrlp5++ulyP2n2r3/9Sy6Xq8IK/fbbb9cbb7yhrVu3
+auvWrVqyZIl7W0FBgaZMmaIrrrii3PHDhg3TN998o/Xr1+vhhx/WfffdJ+lkUfjkk09q9erVWr16
+tZ544olSheEp5Z3b5s2b9c4772jz5s1asmSJ7rjjDo+Xy709Hvai785u5M9e5C5wOI6jYcOGud+G
+b9mypSZMmFBquyQFBwdr4cKF2rBhg5o3b66GDRvqT3/6kw4fPixJevzxx9W0aVM1a9ZMffr00YgR
+IyqsbX57f9latWrphhtuUFZWlm644YZyx23dulW9evWSy+VS586d9Ze//EVXX321JOmhhx7S008/
+rfDwcL300kuqU6eOXnvtNY0aNUrR0dEKDQ0t1SZQUcxnOl9P98c9ff23sVQrUwkDBw40y5YtM8YY
+c+mll5r8/HxjjDF5eXnm0ksvLbXvjBkzzNixY0s9V1BQYLp27Wo2b95sEhMTPR4jNzfXtG7d2r3+
+1ltvmT//+c/u9XHjxplFixaZ7t27mzVr1pwx5rlz55qbb77Z/XjMmDHubX/+85/NW2+9VWZMeef2
+7LPPmkmTJrn3+/3vf2+++uornxtfybTChyxfvtzbIeA8kD97kbuq5envkKuOy0iqtsVVx+WFMz0/
+Tz75pElLS/N2GBdMefVJZeuWs/7AVlZWltavX69OnTpJkvbu3etu3I2IiNDevXtL7e/pfx+PPvqo
+7r//foWEhJR7nJycHEVHR7vXo6KilJOTI0lat26dcnJydO2115Z7jFNee+01xcfH695771VGRoak
+k43Kp88dHR3tnvt05Z2bp/GnmrxHjx7tbmO4kOM9xQ970XdnN/JnL3JX/Q4fOixjTLUthw8d9vYp
+VsqBAwf0j3/8Q3/605+8HYp1zqp4LSws1I033qgpU6YoNDS0zPaKvmrtlA0bNmjHjh0aOHDgOX0D
+gzFG9957b6l2hIrmueOOO7Rt2za99NJLuvXWWyt9vFPO5twkafr06erQocMFH38hG6QBAMD5mz59
+umJjY9W3b1917drV2+FY54x3GygqKtKgQYM0fPhwXXfdde7nIyIilJ+fr8jISOXl5alRo0YVzrNq
+1SqtWbNGzZo1U3Fxsfbt26cePXpo2bJl6tChgxzH0cCBAzVmzBjt2bPHPW7Pnj2Kjo5WQUGBNm3a
+5P7fcX5+vgYOHKh58+bpww8/1KJFi+Q4TpkPcd18880aM2aMpJNXcU/va8rOzlaPHj3KxFreuUVF
+RSk7O7tUbFFRUT43XpJGjhypuLg4SVLdunWVkpLi/tmd+hmw7nvrp/9++kI8rJO/QFk/9ZyvxGP7
+Oio2evRojR492ttheMWp35HMzExlZWWd2yQV9RSUlJSYtLQ0c/fdd5fZNn78eHf/ZUZGhnnwwQdL
+bffU83pKVlZWuT2vxhjTsWNHs2rVKlNSUmL69u1rFi9eXGaf7t27m7Vr13ocv3XrVvfj+fPnm65d
+uxpjjPnpp59Ms2bNzMGDB82BAwfcj8/23DZt2mSSk5PNsWPHzI4dO0zz5s1NSUmJz40/Q1rhw+i7
+sxv5sxe5q1r8HYIn5f1eVPb3pcK9V65caRzHMcnJySYlJcWkpKS4C8mffvrJ9OzZ07Rs2dL06tWr
+VBHYtGlTU69ePRMaGmpiYmLMli1bSs27c+dOk5SUVO5x16xZYxITE02LFi3MnXfe6XGfiorXcePG
+mYSEBJOSkmJ69epVqpj9xz/+YeLj4018fLx58803PY6v6NyeeeYZ06JFC3PppZeaJUuWuJ8fNWqU
++wNk3hh/Ov7RAAB4E3+H4ElVFa/O/w6CH3Ec55z6igEAqAr8HYIn5f1eVPb3ha+HBXwI/WJ2I3/2
+IneAPSheAQAAYA2KV8CHnPrELuxE/uxF7gJLYmKiVqxYccb94uLi9Pnnn0uSnn322YC9Q4CvOeOt
+sgAAAPzJd999d1b7nX4v9Ycffri6wkElceUV8CH03dmN/NmL3FW/emFh7i/eqY6lXliYt0/RLxUX
+F3s7hDIoXgEAQLU7WFAgI1XbcrCg4KxjiYuL02effaaRI0fq0UcfdT+fmZmpmJgYj2MmTpyotLS0
+cvc7vcVg9erVuvzyy1WnTh1FRkbqvvvuO2NMX3zxhTp37qzw8HDFxsZq5syZkqRFixapffv2qlOn
+jmJjY/XEE0+UGrdq1Sr3uJSUFP373/92b3vzzTfVokULhYWFqXnz5po7d64kafv27erRo4caNGig
+hg0bavjw4fr5559Lncvzzz+vdu3ayeVyqaSk5IzxX0gUr4APoe/ObuTPXuQusJxqB6jMV6yfad/T
+t48bN0733HOPfv75Z+3YsUODBw+ucOyuXbt07bXXaty4cdq/f782bNiglJQUSVJoaKhmz56tn3/+
+WYsWLdLrr7+uefPmSZJycnLUr18/PfbYYzp48KBeeOEFDRo0SD/99JOOHDmicePGacmSJTp8+LC+
++uor95yS9MgjjygvL09btmxRdna2Jk6cWCqmt99+W4sXL9ahQ4cUFORb5aJvRQMAAOCDKnMf0osu
+ukhbt27V/v37FRISok6dOlW4/9y5c9WrVy/dfPPNCg4OVr169ZScnCxJuvrqq5WQkCBJSkpK0pAh
+Q9xXV2fPnq1rr71Wffr0kSRdc801uvzyy7Vo0SI5jqOgoCB9++23Onr0qCIiItS2bVtJUosWLdSz
+Z0/VrFlTDRo00D333FPqiq3jOLrrrrsUFRWliy+++Ox/SBcIxSvgQ+i7sxv5sxe5Q1V644039OOP
+P6pNmzbq2LGjFi1aVOH+e/bsUfPmzT1u+89//qPU1FQ1atRIdevW1d///nf99NNPkk5esX3vvfcU
+Hh7uXr788kvl5+crJCRE77zzjqZNm6YmTZqoX79++uGHHyRJe/fu1ZAhQxQdHa06deooLS3NPecp
+5bVP+AKKVwAAEJBq166tX375xb2en59/TuNOnDih//73v+71+Ph4zZ07V//973/14IMP6sYbb9TR
+o0fLnS8mJkbbt2/3uO2WW27Rddddpz179ujQoUMaM2aM+ypwbGys0tLSdPDgQfdSUFCgBx54QJLU
+u3dvLV26VPn5+WrdurX7Vl8PP/ywgoOD9d133+nnn3/WrFmzyvS1Vqal4kKjePVT1fmJTpbqW1JT
+U70eQ2WXsLB63v519xn0TdqL3AWmlJQUffzxxzp48KDy8/P18ssvn9W4Vq1a6ddff9XHH3+soqIi
+Pf300zp27Jh7++zZs93FbJ06deQ4ToV9o8OGDdOyZcv03nvvqbi4WD/99JM2btwoSSosLFR4eLgu
+uugirV692v2hK0kaPny4FixYoKVLl+rEiRP69ddflZmZqZycHO3bt0/z5s3TkSNHVLNmTdWuXVvB
+wcHuOWvXrq2wsDDl5OTof/7nfyr9s/Mmile/VZ2f6WRh+b+loOCgAMA2juMoLS1NycnJiouLU58+
+fTRkyBA5jucrjqf+wy6dLEhfe+01jRo1StHR0QoNDS31Nvsnn3yixMREuVwu3XPPPXr77bcr7B2N
+iYnRxx9/rBdffFH169dX+/bt9c0330iSXnvtNT322GMKCwvTU089pZtvvtk9Ljo6WvPmzdOzzz6r
+Ro0aKTY2Vi+++KKMMSopKdHkyZMVFRWl+vXra+XKlXr99dclSY8//rjWrVunOnXqqH///ho0aFC5
+5+2LHFOZDmRY4eQvIGm1U6ak7l6OobKcSn2QwZ9lZmZyBc9S5K5qOU7ZfxfqhYVV6nZWlRXucunA
+4cNntW/Tpk01Z84cde3atdriQVmefi8qer48fMMWAACodmdbWFa3ffv26b///a/i4uK8HQrOEW0D
+gE/p7u0AcB64cmcvchcYvv76a1166aW66667FB0dfUGPPWfOHLlcrjJLUlLSBY3DH9A24IdoG8CF
+RdsAgNIq+zYwAkNVtQ1w5RXwKZneDgDngXuF2ovcAfageAUAAIA1aBvwQ7QN4MLi7UEApdE2AE9o
+GwAAAEDAoXgFfEqmtwPAeaBv0l7kDrAHxSsAAAgIcXFx+uyzz6w/RqCjeAV8SndvB4DzwL1C7UXu
+AsPpX/F6toKCgrRjx45qPQYqh+IVAABUu7DwcHdhVx1LWHh4tcXOh898C18PC/iUTHH11V6ZmZlc
+wbMUuat+BYcOScuXV9/8qamV2n/Lli36wx/+oGeffVYFBQV6/vnndeDAAXXt2lXTpk1T48aNddVV
+V0mSkpOT5TiO/vGPf+imm27SwoULNWHCBO3atUtt27bVtGnTPH5T1qljZGRk6Oabb66S8wRXXv2Y
+w2LlkuoDMVRucbmq72oHAFSHdevWqU+fPvrb3/6mRo0a6eGHH9Z7772nvLw8NW3aVEOGDJEkrVix
+QpL0zTffqKCgQDfddJPWr1+v2267TdOnT9eBAwf05z//WQMGDFBRUVG5x6BwrVrc59UPcX89AIA3
+efo75DhOtV55VWrqGf/2NWvWTCNGjNA//vEPzZkzR1dddZVuu+02NWzYUJMmTZIkHTlyROHh4dq2
+bZtiY2MVFBSkbdu2qXnz5pKk22+/XQ0bNtSTTz7pnrd169aaPn26unXr5vEYOIn7vAIAAFSCMUZ/
+//vf1aVLF3dReepq6ym1a9dW/fr1lZOT43GOXbt26cUXX1R4eLh72bNnj3Jzc8s9BqoWxSvgQ7jX
+pN3In73IXWBwHEd///vftWvXLt17772SpCZNmigrK8u9z5EjR/TTTz8pKirK4xyxsbF65JFHdPDg
+QfdSWFjobg3wdAxULYpXAAAQMFwul5YsWaIVK1booYce0tChQzVjxgxt3LhRx44d08MPP6wrrrhC
+sbGxkqSIiAht377dPX706NGaNm2aVq9eLWOMjhw5okWLFqmwsLDcY6BqUbwCPoRPO9uN/NmL3AWW
+OnXq6NNPP9XixYu1YsUKPfXUUxo0aJCaNGminTt36u2333bvO3HiRKWnpys8PFzvv/++LrvsMk2f
+Pl1jx45VvXr11LJlS/3zn/8sc2/X04/x+OOPX+hT9Gt8YMsP8YEtAIA3efo7FBYefvJ2WdXEVbeu
+Dh88WG3z4/zxgS3AD9F3ZzfyZy9yV/0OHzwoY0y1LRSugYPiFQAAANagbcAP0TYAAPAm/g7BE9oG
+AAAAEHAoXgEfQt+d3cifvcgdYA+KVwAAAFiDnlc/RK8RAMCb+DsET6qq57VGVQYFAAAQHh5e5qb9
+QHh4eJXMQ9sA4EPou7Mb+bMXuataBw4cqNZ7uv52Wb58+QU9Hsu5LQcOHKiS3y+KV8CHbNiwwdsh
+4DyQP3uRO7uRv8BC8Qr4kEPV+NWJqH7kz17kzm7kL7BQvAIAAMAaFK+AD8nKyvJ2CDgP5M9e5M5u
+5C+wcKssP5SSkqKNGzd6OwwAAIAzSk5OrlTfMsUrAAAArEHbAAAAAKxB8QoAAABrULz6kSVLlqh1
+69Zq2bKlnnvuOW+Hg0qKi4tTu3bt1L59e3Xs2NHb4aACt956qyIiIpSUlOR+7sCBA+rVq5datWql
+3r17c+seH+YpfxMnTlR0dLTat2+v9u3ba8mSJV6MEOXJzs5WamqqEhISlJiYqKlTp0ri9WeL8vJX
+2dcfPa9+4sSJE7r00ku1bNkyRUVF6Xe/+53eeusttWnTxtuh4Sw1a9ZMa9euVb169bwdCs5g5cqV
+Cg0N1YgRI/Ttt99Kkh544AE1aNBADzzwgJ577jkdPHhQkyZN8nKk8MRT/p544gm5XC7de++9Xo4O
+FbbrObIAAAMISURBVMnPz1d+fr5SUlJUWFioyy67TB999JFmzJjB688C5eXv3XffrdTrjyuvfmL1
+6tWKj49XXFycatasqSFDhmjevHneDguVxP8l7dCtW7cy39E9f/58paenS5LS09P10UcfeSM0nAVP
++ZN4/dkgMjJSKSkpkqTQ0FC1adNGOTk5vP4sUV7+pMq9/ihe/UROTo5iYmLc69HR0e5fCNjBcRxd
+c801uvzyyzV9+nRvh4NK2rt3ryIiIiRJERER2rt3r5cjQmW98sorSk5O1m233cbbzhbIysrS+vXr
+1alTJ15/FjqVvyuuuEJS5V5/FK9+wnEcb4eA8/Tll19q/fr1Wrx4sV599VWtXLnS2yHhHDmOw2vS
+Mrfffrt27typDRs2qHHjxrrvvvu8HRIqUFhYqEGDBmnKlClyuVyltvH6832FhYW68cYbNWXKFIWG
+hlb69Ufx6ieioqKUnZ3tXs/OzlZ0dLQXI0JlNW7cWJLUsGFDXX/99Vq9erWXI0JlREREKD8/X5KU
+l5enRo0aeTkiVEajRo3cRc+oUaN4/fmwoqIiDRo0SGlpabruuusk8fqzyan8DR8+3J2/yr7+KF79
+xOWXX66tW7cqKytLx48f1zvvvKMBAwZ4OyycpV9++UUFBQWSpCNHjmjp0qWlPgkN3zdgwADNnDlT
+kjRz5kz3P8qwQ15envvxhx9+yOvPRxljdNttt6lt27a6++673c/z+rNDefmr7OuPuw34kcWLF+vu
+u+/WiRMndNttt+mhhx7ydkg4Szt37tT1118vSSouLtawYcPInw8bOnSo/v3vf2v//v2KiIjQk08+
+qYEDB2rw4MHavXu34uLi9O6776pu3breDhUe/DZ/TzzxhDIzM7VhwwY5jqNmzZrp73//u7uHEr7j
+iy++0FVXXaV27dq5WwMyMjLUsWNHXn8W8JS/Z599Vm+99ValXn8UrwAAALAGbQMAAACwBsUrAAAA
+rEHxCgAAAGtQvAIAAMAaFK8AAACwBsUrAAAArEHxCgAAAGtQvAIAAMAa/x+UAWqBHIAdHgAAAABJ
+RU5ErkJggg==
 "
 >
 </div>
@@ -3367,6 +3109,96 @@ PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
 </div>
 </div>
 
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="to-dopiero-pocz-tek-">To dopiero początek!</h1>
+<hr>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Zapis/odczyt: CSV, excel, HTML, JSON, SQL, HDF5, pickle, ...</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Merge/join/groupby a&#39;la SQL</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Funkcje statystyczne, numeryczne, interpolacja</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Dane typu &quot;sparse&quot;</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Ekosystem SciPy</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>...</li>
+</ul>
+</div>
+</div>
 </div>
     </div></section>
     </section><section>
@@ -3377,33 +3209,79 @@ PXv2lAceeECGDRsmlZWVWuWvrq6WNm3aSFVVlf+6YOXnKRuIiCIM37lLRBRhOPiJiCIMBz8RUYTh
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="crawlowanie">Crawlowanie</h1>
+<h1 id="moje-wnioski-1-">Moje wnioski (1)</h1>
 <hr>
 </div>
 </div>
 </div><div class="fragment">
     
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>pandas everywhere!!!!11</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Nigdy więcej &quot;ręcznej&quot; obróbki danych</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[18]:
+In&nbsp;[12]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">post_data</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s">&quot;created_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T00:20Z&quot;</span><span class="p">,</span>
-        <span class="s">&quot;history&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T01:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T02:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T03:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T04:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T05:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">160</span><span class="p">},</span>
-            <span class="p">{</span><span class="s">&quot;crawl_time&quot;</span><span class="p">:</span> <span class="s">&quot;2014-04-01T06:00Z&quot;</span><span class="p">,</span> <span class="s">&quot;likes&quot;</span><span class="p">:</span> <span class="mi">166</span><span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="c"># ... more posts ...</span>
-<span class="p">]</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">def</span> <span class="nf">the_manual_way</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data.csv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s">&quot;ts&quot;</span><span class="p">:</span> <span class="n">parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+            <span class="k">print</span> <span class="s">&quot;I wish I&#39;ve known pandas&quot;</span>
+    <span class="c"># ... furious data wrangling ...        </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="k">def</span> <span class="nf">the_pandas_way</span><span class="p">():</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&quot;data.csv&quot;</span><span class="p">)</span>
+
+    <span class="c"># use pandas, Luke!</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()[</span><span class="s">&quot;2014-01-01&quot;</span><span class="p">:]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)[</span><span class="s">&quot;likes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -3420,228 +3298,218 @@ In&nbsp;[18]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="przyrost-like-w-od-do-">Przyrost like&#39;ów &quot;od do&quot;</h2>
+<h1 id="moje-wnioski-2-">Moje wnioski (2)</h1>
 <hr>
 </div>
 </div>
 </div><div class="fragment">
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[19]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">history</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">post_data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;history&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;crawl_time&quot;</span><span class="p">)</span>
-<span class="n">history</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span>
-<span class="n">history</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>pandas nie rozwiązuje wszystkich problemów</li>
+</ul>
 </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[19]:</div>
-
-<div class="output_html rendered_html output_subarea output_pyout">
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>likes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2014-04-01 01:00:00+00:00</th>
-      <td> 100</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 02:00:00+00:00</th>
-      <td> 120</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 03:00:00+00:00</th>
-      <td> 140</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 04:00:00+00:00</th>
-      <td> 150</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 05:00:00+00:00</th>
-      <td> 160</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 06:00:00+00:00</th>
-      <td> 166</td>
-    </tr>
-  </tbody>
-</table>
-<p>6 rows × 1 columns</p>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Spora funkcjonalność</li>
+</ul>
 </div>
 </div>
-
 </div>
-
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Użyć jej dla wydajności - unikać &quot;pure Python&quot;</li>
+</ul>
 </div>
 </div>
-
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>API: unikać przeliczania &quot;online&quot;, OK dla pre-agregacji</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Lepiej pracuje się z &quot;gotowymi&quot; danymi</li>
+</ul>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Spójny model danych</li>
+</ul>
+</div>
+</div>
 </div>
     </div></section>
     </section><section>
     <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
-In&nbsp;[20]:
 </div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">history</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
-</pre></div>
-
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="referencje">Referencje</h1>
+<hr>
+<ul>
+<li>pandas: <a href="http://pandas.pydata.org/"><a href="http://pandas.pydata.org/">http://pandas.pydata.org/</a></a></li>
+<li>pandas cookbook: <a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html"><a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html">http://pandas.pydata.org/pandas-docs/stable/cookbook.html</a></a></li>
+<li><p>Wes McKinney - Python for Data Analysis (książka autora pandas)
+<a href="http://shop.oreilly.com/product/0636920023784.do"><a href="http://shop.oreilly.com/product/0636920023784.do">http://shop.oreilly.com/product/0636920023784.do</a></a></p>
+<p><img src="http://akamaicovers.oreilly.com/images/0636920023784/cat.gif" alt=""></p>
+</li>
+</ul>
+<h1 id="przydatne-linki-tutoriale">Przydatne linki, tutoriale</h1>
+<ul>
+<li><a href="http://nbviewer.ipython.org/github/changhiskhan/talks/blob/master/pydata2012/pandas_timeseries.ipynb">Timeseries with pandas</a></li>
+<li><a href="https://bitbucket.org/hrojas/learn-pandas">Learn pandas</a></li>
+</ul>
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[20]:</div>
-
-<div class="output_html rendered_html output_subarea output_pyout">
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>likes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2014-04-01 01:00:00+00:00</th>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 02:00:00+00:00</th>
-      <td> 20</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 03:00:00+00:00</th>
-      <td> 20</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 04:00:00+00:00</th>
-      <td> 10</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 05:00:00+00:00</th>
-      <td> 10</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 06:00:00+00:00</th>
-      <td>  6</td>
-    </tr>
-  </tbody>
-</table>
-<p>6 rows × 1 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div><div class="fragment">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">
-In&nbsp;[21]:
-</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span class="n">like_growth</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
-<span class="n">like_growth</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">
-    Out[21]:</div>
-
-<div class="output_html rendered_html output_subarea output_pyout">
-<div style="max-height:1000px;max-width:1500px;overflow:auto;">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>likes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2014-04-01 01:00:00+00:00</th>
-      <td> 100</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 02:00:00+00:00</th>
-      <td>  20</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 03:00:00+00:00</th>
-      <td>  20</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 04:00:00+00:00</th>
-      <td>  10</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 05:00:00+00:00</th>
-      <td>  10</td>
-    </tr>
-    <tr>
-      <th>2014-04-01 06:00:00+00:00</th>
-      <td>   6</td>
-    </tr>
-  </tbody>
-</table>
-<p>6 rows × 1 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section>
+</div></section>
     </section><section>
     <section>
     
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="linki">Linki</h1>
+<hr>
+<p>Prezentacja dostępna pod adresem: <a href="http://pawroman.github.io/pywaw-pandas/"><a href="http://pawroman.github.io/pywaw-pandas/">http://pawroman.github.io/pywaw-pandas/</a></a></p>
+<p>Wpisy na blogu: <a href="http://piesnakod.pl/tag/pandas/"><a href="http://piesnakod.pl/tag/pandas/">http://piesnakod.pl/tag/pandas/</a></a></p>
+<p>Kod prezentacji: <a href="https://github.com/pawroman/pywaw-pandas"><a href="https://github.com/pawroman/pywaw-pandas">https://github.com/pawroman/pywaw-pandas</a></a></p>
+<hr>
+
+<p>Wykonano w IPython notebook <a href="http://ipython.org/notebook"><a href="http://ipython.org/notebook">http://ipython.org/notebook</a></a></p>
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="dzi-kuj-">Dziękuję</h1>
+<hr>
+<p><br/></p>
+<p>Paweł Romanowski - <a href="http://github.com/pawroman"><a href="http://github.com/pawroman">http://github.com/pawroman</a></a></p>
+<p><br/></p>
+<p><img src="img/daftcode.png" alt=""></p>
+<p><a href="http://daftcode.pl"><a href="http://daftcode.pl">http://daftcode.pl</a></a></p>
+</div>
+</div>
+</div></section>
+    </section>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/head.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/reveal.js/2.5.0/js/reveal.js"></script>
+
+<script>
+
+// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+
+width: 1024,
+height: 768,
+margin: 0.01,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: "https://cdn.jsdelivr.net/reveal.js/2.5.0/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "https://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: "https://cdn.jsdelivr.net/reveal.js/2.5.0/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<script>
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  window.scrollTo(0,0);
+  MathJax.Hub.Rerender(event.currentSlide);
+});
+</script>
+
+</body>
+
+</html>
+iv class="prompt input_prompt">
 In&nbsp;[22]:
 </div>
 <div class="inner_cell">
