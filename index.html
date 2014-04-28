@@ -2528,7 +2528,7 @@ In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">posts_ts</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">posts_ts</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s">&quot;ts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">posts_ts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">()</span>
 </pre></div>
 
@@ -2650,11 +2650,11 @@ In&nbsp;[8]:
   </thead>
   <tbody>
     <tr>
-      <th>2014-01-02 20:42:00+01:00</th>
-      <td> 4</td>
-      <td> 22</td>
-      <td>           VENI, VIDI, VICI</td>
-      <td>  julius_caesar</td>
+      <th>2014-01-01 11:00:00+01:00</th>
+      <td> 1</td>
+      <td> 16</td>
+      <td>                HELLO WORLD</td>
+      <td>         Zbychu</td>
     </tr>
     <tr>
       <th>2014-01-01 14:37:00+01:00</th>
@@ -2664,11 +2664,18 @@ In&nbsp;[8]:
       <td>         Zbychu</td>
     </tr>
     <tr>
-      <th>2014-01-01 11:00:00+01:00</th>
-      <td> 1</td>
-      <td> 16</td>
-      <td>                HELLO WORLD</td>
-      <td>         Zbychu</td>
+      <th>2014-01-01 16:35:00+01:00</th>
+      <td> 3</td>
+      <td>  3</td>
+      <td> pandas 3 bardzo proszę pls</td>
+      <td> biedny student</td>
+    </tr>
+    <tr>
+      <th>2014-01-02 20:42:00+01:00</th>
+      <td> 4</td>
+      <td> 22</td>
+      <td>           VENI, VIDI, VICI</td>
+      <td>  julius_caesar</td>
     </tr>
     <tr>
       <th>2014-02-04 13:02:00+01:00</th>
@@ -2690,13 +2697,6 @@ In&nbsp;[8]:
       <td>  5</td>
       <td> miau miau miau bardzo miau</td>
       <td>          kotek</td>
-    </tr>
-    <tr>
-      <th>2014-01-01 16:35:00+01:00</th>
-      <td> 3</td>
-      <td>  3</td>
-      <td> pandas 3 bardzo proszę pls</td>
-      <td> biedny student</td>
     </tr>
   </tbody>
 </table>
